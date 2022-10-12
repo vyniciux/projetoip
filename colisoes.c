@@ -197,6 +197,17 @@ float colisao(int* cena,float* x,float* y,float* Vel){
 
             }
 
+            else if(*x<=1000){
+
+                if(*y<=600){
+
+                    Vel[0]=0;
+                
+                }
+
+            }
+
+
             else if(*x>=1045){
 
                // cena = 3;
@@ -204,11 +215,30 @@ float colisao(int* cena,float* x,float* y,float* Vel){
 
             }
 
-            else if(*y<=230){
+            if(*y<=600){
 
-              *cena = 7;
-             *y=1040;
+                if(*x>=503&&*x<=600){
 
+                *cena = 7;
+                *y=1040;
+                *x=1500;
+
+                }
+
+            }
+
+            if(*y<=285){
+
+                Vel[0]=0;
+            }
+
+            if(*x<=1350&&*y<=500){
+
+                Vel[2]=0;
+            }
+            if(*y<=600&&*y>=500){
+
+               if(*x<=1026){Vel[2]=0;}
             }
 
 
@@ -256,6 +286,7 @@ float colisao(int* cena,float* x,float* y,float* Vel){
 
                 *cena = 8;
                 *x=1825;
+                *y=650;
 
             }
 
@@ -361,11 +392,7 @@ float colisao(int* cena,float* x,float* y,float* Vel){
 
         }
 
-    
-    
-    
-
-
+   
 }
 
 
