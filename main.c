@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "colisoes.h"
 #include <stdio.h>
 int main(void)
 {
@@ -40,14 +41,12 @@ int main(void)
     int cena = 0;
     
     int cenaja = 1;
+    
 
-    float VelUp = 5;
-    float VelDonw = 5;
-    float VelLeft = 5;
-    float VelRight = 5;
+    // Up=0,Donw=1,Left=2,Right=3
+    float Vel[4]={0,1,2,3};
     float VelPadrao = 5;
 
-    int xcloud = 0;
 
     SetTargetFPS(60);           
   
@@ -59,382 +58,24 @@ int main(void)
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
 
-        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) position.x += VelRight;
-        if (IsKeyDown(KEY_LEFT)&& position.x>20) position.x -= VelLeft;
-        if (IsKeyDown(KEY_UP)&& position.y>220) position.y -= VelUp;
-        if (IsKeyDown(KEY_DOWN)&& position.y<1050) position.y += VelDonw;
+        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) position.x += Vel[3];
+        if (IsKeyDown(KEY_LEFT)&& position.x>20) position.x -= Vel[2];
+        if (IsKeyDown(KEY_UP)&& position.y>220) position.y -= Vel[0];
+        if (IsKeyDown(KEY_DOWN)&& position.y<1050) position.y += Vel[1];
+
         if (IsKeyDown(KEY_M)) {VelPadrao+=0.5;}
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
         if (IsKeyDown(KEY_P)) cena=0;
 
-        VelUp=VelPadrao;
-        VelLeft=VelPadrao;
-        VelDonw=VelPadrao;
-        VelRight=VelPadrao;
+        Vel[0]=VelPadrao;
+        Vel[1]=VelPadrao;
+        Vel[2]=VelPadrao;
+        Vel[3]=VelPadrao;
 
 
-        xcloud++;
-        if(xcloud>1850){xcloud=-1920;}
+        colisao(&cena,&position.x,&position.y,Vel);
 
-        if(cena == 0){
 
-            VelUp=0;
-            VelLeft=0;
-            VelDonw=0;
-            VelRight=0;
-            if (IsKeyDown(KEY_S)) {cena=cenaja;VelUp=5;VelLeft=5;VelDonw=5;VelRight=5;}
-
-        }
-
-        else  if(cena == 1){
-
-            cenaja=1;
-
-            if(position.x<=25){
-
-               // cena = 0;
-                //position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                if(position.y<=650&&position.y>=460){
-                cena = 2;
-                position.x=25;
-                position.y=720;}
-
-            }
-
-            else if(position.y>=1045){
-
-               // cena = 3;
-                //position.y=255;
-
-            }
-
-            else if(position.y<=230){
-
-             //  cena = 1;
-              //  position.y=1040;
-
-            }
-
-
-        }
-      
-        else  if(cena == 2){
-
-            cenaja=2;
-
-            if(position.x<=25){
-
-                 if(position.y<=800&&position.y>=560){
-                cena = 1;
-                position.x=1825;
-                position.y=630;
-                }
-
-            }
-
-            else if(position.x>=1830){
-
-                //cena = 2;
-               // position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-                 if(position.x<=590&&position.x>=350){
-                cena = 3;
-                position.y=545;
-                position.x=905;
-                 }
-            }
-
-            else if(position.y<=230){
-
-             //  cena = 1;
-              //  position.y=1040;
-
-            }
-
-
-        }
-
-        else  if(cena == 3){
-
-            cenaja=3;
-
-            if(position.x<=25){
-
-                cena = 4;
-                position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                //cena = 2;
-               // position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-               // cena = 3;
-                //position.y=255;
-
-            }
-
-            else if(position.y<=489){
-
-             if(position.x<=950&&position.x>=830){
-              cena = 2;
-              position.y=1040;
-              position.x=434;
-             }
-
-            }
-
-            else if(position.y<=627){
-
-                if(position.x>=655&&position.x<=835){
-
-                    VelUp=0;
-                }
-               // else VelUp = 5;
-                if(position.x>=1027&&position.x<=1310){
-
-                    VelUp=0;
-                }
-               // else VelUp = 5;
-
-
-
-            }
-
-
-        }
-        
-        else  if(cena == 4){
-
-            cenaja=4;
-
-            if(position.x<=25){
-
-                cena = 5;
-                position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                cena = 3;
-                position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-               // cena = 3;
-                //position.y=255;
-
-            }
-
-            else if(position.y<=230){
-
-              //cena = 2;
-              //position.y=1040;
-
-            }
-
-
-        }
-
-        else  if(cena == 5){
-
-            cenaja=5;
-
-            if(position.x<=25){
-
-                cena = 6;
-                position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                cena = 4;
-                position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-               // cena = 3;
-                //position.y=255;
-
-            }
-
-            else if(position.y<=230){
-
-              cena = 7;
-              position.y=1040;
-
-            }
-
-
-        }
-
-        else  if(cena == 6){
-
-            cenaja=6;
-
-            if(position.x<=25){
-
-               // cena = 4;
-              //  position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                cena = 5;
-                position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-               // cena = 3;
-                //position.y=255;
-
-            }
-
-            else if(position.y<=230){
-
-             // cena = 7;
-             // position.y=1040;
-
-            }
-
-
-        }
-        
-        else  if(cena == 7){
-
-            cenaja=7;
-
-            if(position.x<=25){
-
-                cena = 8;
-                position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-              //  cena = 5;
-               // position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-                cena = 5;
-               position.y=676;
-               position.x=534;
-
-            }
-
-            else if(position.y<=230){
-
-              if(position.x>=1487&&position.x<=1743){ 
-              cena = 9;
-              position.y=1040;
-              position.x=1724;
-              }
-
-            }
-
-
-        }
-        
-        else  if(cena == 8){
-
-            cenaja=8;
-
-            if(position.x<=25){
-
-                //cena = 4;
-                //position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                cena = 7;
-                position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-               // cena = 3;
-                //position.y=255;
-
-            }
-
-            else if(position.y<=230){
-
-              //cena = 2;
-              //position.y=1040;
-
-            }
-
-
-        }
-
-        else  if(cena == 9){
-
-            cenaja=9;
-
-            if(position.x<=25){
-
-                //cena = 4;
-                //position.x=1825;
-
-            }
-
-            else if(position.x>=1830){
-
-                //cena = 2;
-               // position.x=20;
-
-            }
-
-            else if(position.y>=1045){
-
-                if(position.x>=1500&&position.x<=1760){ 
-
-                cena = 7;
-                position.y=255;
-                position.x=1578;
-                }
-
-            }
-
-            else if(position.y<=230){
-
-              cena = 2;
-              position.y=1040;
-
-            }
-
-
-        }
 
         printf("X=%.1f ",position.x);
         printf("Y=%.1f ",position.y);
@@ -448,7 +89,12 @@ int main(void)
 
              ClearBackground(BLUE);
                    
-            if(cena==0 ){
+                 if(cena==0 ){
+
+                    int xcloud = 0;
+                    
+                     xcloud++;
+                     if(xcloud>1850){xcloud=-1920;}
 
                      DrawTexture(mn1,0,0,WHITE);
                      DrawTexture(mn3,0,0,WHITE);
@@ -534,6 +180,7 @@ int main(void)
                  DrawCircle(position.x,position.y,50,GREEN);
 
             }
+
 
 
           
