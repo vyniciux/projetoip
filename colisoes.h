@@ -1,6 +1,14 @@
 #ifndef COLISOES_PERS
 #define COLISOES_PERS
 
-float colisao(int* cena,float* x,float* y, float* Vel);
+typedef struct{
+    int codigoCena;
+    Rectangle *obstaculos;
+    int qtdObstaculos;
+} Cenas;
+
+void criarCenas(Cenas **cenas);
+
+int colisao(Rectangle player, Cenas cena);
 
 #endif

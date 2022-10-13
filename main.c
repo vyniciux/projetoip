@@ -1,7 +1,10 @@
 #include "raylib.h"
 #include "colisoes.h"
 #include <stdio.h>
+#include <stdlib.h>
+
 #define NUM_FRAMES  5
+
 int main(void)
 {
  
@@ -11,6 +14,7 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "Demo");
 
     Vector2 position = { (float)screenWidth/2, (float)screenHeight/2 };
+    
 
     Texture mn1 = LoadTexture("assets/Menu/menu001.png");
     Texture mn2 = LoadTexture("assets/Menu/menub001.png");
@@ -39,6 +43,7 @@ int main(void)
     Texture casavizin2 = LoadTexture("assets/img00102.png");
     Texture salav = LoadTexture("assets/img0013.png");
     Texture cozinhav = LoadTexture("assets/img0014.png");
+    Texture cozinhav1 = LoadTexture("assets/img00141.png");
     Texture quarto = LoadTexture("assets/img0012.png");
     Texture quarto1 = LoadTexture("assets/img00121.png");
     Texture quarto2 = LoadTexture("assets/img00122.png");
@@ -48,6 +53,19 @@ int main(void)
     Texture quarto6 = LoadTexture("assets/img00126.png");
     Texture quarto7 = LoadTexture("assets/img00127.png");
 
+    /////Quinha's codd///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+   
+    Vector2 nextPosition = { (float)screenWidth/2 + 100, (float)screenHeight/2};
+    Cenas *cenas;
+    cenas = (Cenas *) malloc (10 * sizeof(Cenas));
+    criarCenas(&cenas); 
+    Rectangle player = {position.x, position.y, 30, 40};
+    
+
+    //FINAL DO CÓDIGO DO QUNHAS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
     //Giovanna's code///////////////////////////////////////////////////////////////////////////////////////////////////////
     
         
@@ -58,9 +76,9 @@ int main(void)
     
     float frameHeightstart = (float)BotaoStart.height/NUM_FRAMES;
     
-    Rectangle sourceRecstart = {0, 0,(float)BotaoStart.width, frameHeightstart+115};
+    Rectangle sourceRecstart = {0, 0,(float)BotaoStart.width, frameHeightstart+110};
     
-    Rectangle btnStartrec = { 160,450,(float)BotaoStart.width, frameHeightstart+115};
+    Rectangle btnStartrec = { 200,500,(float)BotaoStart.width, frameHeightstart+110};
     
     int btnstart = 0;
     
@@ -71,9 +89,9 @@ int main(void)
     
     float frameHeightsobre = (float)BotaoStart.height/NUM_FRAMES;
     
-    Rectangle sourceRecsobre = {0, 0,(float)BotaoSobre.width, frameHeightsobre+115};
+    Rectangle sourceRecsobre = {0, 0,(float)BotaoSobre.width, frameHeightsobre+110};
     
-    Rectangle btnSobrerec = { 160, 620,(float)BotaoSobre.width, frameHeightsobre+115};
+    Rectangle btnSobrerec = { 200, 620,(float)BotaoSobre.width, frameHeightsobre+110};
     
     int btnsobre = 0;
     
@@ -83,9 +101,9 @@ int main(void)
     
     float frameHeightinst = (float)BotaoInst.height/NUM_FRAMES;
     
-    Rectangle sourceRecinst = {0, 0,(float)BotaoInst.width, frameHeightinst+115};
+    Rectangle sourceRecinst = {0, 0,(float)BotaoInst.width, frameHeightinst+110};
     
-    Rectangle btnInstrec = { 160, 790,(float)BotaoInst.width, frameHeightinst+115};
+    Rectangle btnInstrec = { 200, 740,(float)BotaoInst.width, frameHeightinst+110};
     
     int btninst = 0;
     
@@ -95,9 +113,9 @@ int main(void)
     
     float frameHeightfechar = (float)BotaoFechar.height/NUM_FRAMES;
     
-    Rectangle sourceRecfechar = {0, 0,(float)BotaoFechar.width, frameHeightfechar+110};
-    
-    Rectangle btnFecharrec = { 1650, 80,(float)BotaoFechar.width, frameHeightfechar+110};
+    Rectangle sourceRecfechar = {0, 0,(float)BotaoFechar.width, frameHeightfechar+100};
+
+    Rectangle btnFecharrec = { 1650, 80,(float)BotaoFechar.width, frameHeightfechar+100};
     
     int btnfechar = 0;
     
@@ -118,12 +136,12 @@ int main(void)
     
     //mensagens:
     
-    const char messagejogar1[128] = "Fulano sempre desconfiou que seu vizinho, Sicrano, escondia algo.";
-    const char messagejogar2[128] = "Certo dia, Fulano percebeu que Sicrano havia saido e como desde pequeno";
-    const char messagejogar3[128] = "sempre foi muito curioso, resolveu invadir a casa dele a fim de encontrar";
+    const char messagejogar1[128] = "Sabrina sempre desconfiou que seu vizinho, Isac e como desde pequena";
+    const char messagejogar3[128] = "sempre foi muito curiosa, resolveu invadir a casa dele a fim de encontrar";
+    const char messagejogar2[128] = "Certo dia, Sabrina percebeu que Isac havia saido e como desde pequena";
     const char messagejogar4[128] = "alguma coisa que confirmasse sua desconfiança."; 
-    const char messagejogar5[128] = "Para isso, ele precisa desvendar uma serie de desafios antes que Sicrano chegue e o pegue no flagra!";
-    const char messagejogar6[128] = "AJUDE FULANO A MATAR SUA CURIOSIDADE!!";
+    const char messagejogar5[128] = "Para isso, ela precisa desvendar uma serie de desafios antes que Isac a pegue no flagra!";
+    const char messagejogar6[128] = "AJUDE SABRINA A MATAR SUA CURIOSIDADE!!";
     
     
     const char messagesobre1[128] = "Este jogo é um projeto para disciplina de Introdução a";
@@ -131,15 +149,17 @@ int main(void)
     const char messagesobre3[128] = "da linguagem C e da biblioteca Raylib.";
    
     
-    const char messageinst1[128] = "PARA QUE *nome do personagem principal* ANDE PARA DIREITA APERTE : D";
-    const char messageinst2[128] = "PARA QUE *nome do personagem principal* ANDE PARA ESQUERDA APERTE : A";
-    const char messageinst3[128] = "PARA QUE *nome do personagem principal* ANDE PARA CIMA APERTE : W";
-    const char messageinst4[128] = "PARA QUE *nome do personagem principal* ANDE PARA BAIXO APERTE : S";
-    const char messageinst5[128] = "PARA QUE *nome do personagem principal* INTERAJA COM ALGO APERTE : E";
+    const char messageinst1[128] = "PARA QUE SABRINA ANDE PARA DIREITA APERTE : D";
+    const char messageinst2[128] = "PARA QUE SABRINA ANDE PARA ESQUERDA APERTE : A";
+    const char messageinst3[128] = "PARA QUE SABRINA ANDE PARA CIMA APERTE : W";
+    const char messageinst4[128] = "PARA QUE SABRINA ANDE PARA BAIXO APERTE : S";
+    const char messageinst5[128] = "PARA QUE SABRINA INTERAJA COM ALGO APERTE : E";
+    const char messageinst6[128] = "PARA PAUSAR O JOGO APERTE : P";
                                  
     Vector2 PosMouse = { 0.0f, 0.0f };
 
     int currentScreen=1;
+    
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -147,7 +167,7 @@ int main(void)
 
 
     int cena = 0;
-    
+    int cenapp = 1;
 
     // Up=0,Donw=1,Left=2,Right=3
     float Vel[4]={0,1,2,3};
@@ -162,14 +182,14 @@ int main(void)
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
 
-        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) position.x += Vel[3];
-        if (IsKeyDown(KEY_LEFT)&& position.x>20) position.x -= Vel[2];
-        if (IsKeyDown(KEY_UP)&& position.y>220) position.y -= Vel[0];
-        if (IsKeyDown(KEY_DOWN)&& position.y<1050) position.y += Vel[1];
+        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) nextPosition.x += Vel[3];
+        if (IsKeyDown(KEY_LEFT)&& position.x>20) nextPosition.x -= Vel[2];
+        if (IsKeyDown(KEY_UP)&& position.y>220) nextPosition.y -= Vel[0];
+        if (IsKeyDown(KEY_DOWN)&& position.y<1050) nextPosition.y += Vel[1];
 
         if (IsKeyDown(KEY_M)) {VelPadrao+=0.5;}
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
-        if (IsKeyDown(KEY_P)) cena=0;
+        if (IsKeyDown(KEY_P)){if(cena!=0){cenapp=cena;} cena=0;}
 
         Vel[0]=VelPadrao;
         Vel[1]=VelPadrao;
@@ -177,8 +197,27 @@ int main(void)
         Vel[3]=VelPadrao;
 
 
-        colisao(&cena,&position.x,&position.y,Vel);
 
+        //LUCAS//------------------------
+
+        player.x = nextPosition.x;
+        player.y = nextPosition.y;
+
+        if(colisao(player, cenas[cena])==1){
+          player.x = position.x;
+          player.y = position.y;
+          nextPosition.x = position.x;
+          nextPosition.y = position.y;
+        }
+        else{
+          position.x = nextPosition.x;
+          position.y = nextPosition.y;
+        }
+
+        //-------------------------------
+
+
+        //GIOVANNA//--------------------
         if(cena==0){
 
           switch(currentScreen)
@@ -249,12 +288,14 @@ int main(void)
                   if(framesCounter5 > 293){framesCounter6++;}
                   
                   iniciajogo = true;
+                  if(framesCounter6 > 150){cena=cenapp;currentScreen=1;}
               
                   
               }break;
         
               case 3:
               {
+
                   PosMouse = GetMousePosition();
                   
                   if (CheckCollisionPointRec(PosMouse, btnFecharrec)){
@@ -267,7 +308,7 @@ int main(void)
         
                   else btnfechar = 0;
                   
-                  sourceRecfechar.y = btnfechar*(frameHeightfechar-10);
+                  sourceRecfechar.y = btnfechar*(frameHeightfechar-20);
                   
               }break;
         
@@ -285,7 +326,7 @@ int main(void)
         
                   else btnfechar = 0;
                   
-                  sourceRecfechar.y = btnfechar*(frameHeightfechar-10);
+                  sourceRecfechar.y = btnfechar*(frameHeightfechar-20);
               
               }break;
         
@@ -293,7 +334,7 @@ int main(void)
           }
        
         }
-
+        //------------------------------
 
 
         printf("X=%.1f ",position.x);
@@ -338,29 +379,27 @@ int main(void)
                 
                 //carregando texturas da tela que aparece antes do jogo comecar
                 
-                DrawTexture(mn1, 0, 0, WHITE);
+               // DrawTexture(mn1, 0, 0, WHITE);
                 DrawTexture(mn6, 0, 0, WHITE);
-                DrawText(TextSubtext(messagejogar1, 0, framesCounter1/3), 70, 150, 25, BLACK);
-                DrawText(TextSubtext(messagejogar2, 0, framesCounter2/3), 70, 190, 25, BLACK);
-                DrawText(TextSubtext(messagejogar3, 0, framesCounter3/3), 70, 230, 25, BLACK);
-                DrawText(TextSubtext(messagejogar4, 0, framesCounter4/3), 70, 270, 25, BLACK);
-                DrawText(TextSubtext(messagejogar5, 0, framesCounter5/3), 73, 400, 21, DARKBROWN);
-                DrawText(TextSubtext(messagejogar6, 0, framesCounter6/3), 120, 500, 45, RED);
-                
-                
+                DrawText(TextSubtext(messagejogar1, 0, framesCounter1/3), 130, 160, 40, BLACK);
+                DrawText(TextSubtext(messagejogar2, 0, framesCounter2/3), 130, 220, 40, BLACK);
+                DrawText(TextSubtext(messagejogar3, 0, framesCounter3/3), 130, 280, 40, BLACK);
+                DrawText(TextSubtext(messagejogar4, 0, framesCounter4/3), 130, 340, 40, BLACK);
+                DrawText(TextSubtext(messagejogar5, 0, framesCounter5/3), 133, 480, 31, DARKBROWN);
+                DrawText(TextSubtext(messagejogar6, 0, framesCounter6/3), 200, 600, 65, RED);
                 
                 }break;    
                 case 3:{
                     
                     //texturas da tela "sobre"
                     
-                    DrawTexture(mn1, 0, 0, WHITE);
+                  //  DrawTexture(mn1, 0, 0, WHITE);
                     DrawTexture(mn6, 0, 0, WHITE);
                   //  DrawTexture(Lupa, 760, 50, WHITE);
-                    DrawText("SOBRE", 510, 50, 70, BLACK);
-                    DrawText(messagesobre1, 200, 160, 30, DARKBROWN);
-                    DrawText(messagesobre2, 200, 210, 30, DARKBROWN);
-                    DrawText(messagesobre3, 200, 260, 30, DARKBROWN);
+                    DrawText("SOBRE", 780, 100, 100, BLACK);
+                    DrawText(messagesobre1, 200, 240, 40, DARKBROWN);
+                    DrawText(messagesobre2, 200, 300, 40, DARKBROWN);
+                    DrawText(messagesobre3, 200, 360, 40, DARKBROWN);
                     DrawTextureRec(BotaoFechar, sourceRecfechar, (Vector2){ btnFecharrec.x, btnFecharrec.y}, WHITE);
                     
                     //mudando cor do botao "fechar"
@@ -375,13 +414,14 @@ int main(void)
                     
                     DrawTexture(mn1, 0, 0, DARKBROWN);
                     DrawTexture(mn6, 0, 0, WHITE);
-                    DrawText("INSTRUçÕES", 370, 50, 70,BLACK);
+                    DrawText("INSTRUçÕES", 300, 120, 100,BLACK);
                   // DrawTexture(Lupa, 840, 50, WHITE);
-                    DrawText(messageinst1, 150, 200, 25, BLACK);
-                    DrawText(messageinst2, 150, 260, 25, BLACK);
-                    DrawText(messageinst3, 150, 320, 25, BLACK);
-                    DrawText(messageinst4, 150, 380, 25, BLACK);
-                    DrawText(messageinst5, 150, 440, 25, BLACK);
+                    DrawText(messageinst1, 300, 320, 30, BLACK);
+                    DrawText(messageinst2, 300, 380, 30, BLACK);
+                    DrawText(messageinst3, 300, 440, 30, BLACK);
+                    DrawText(messageinst4, 300, 500, 30, BLACK);
+                    DrawText(messageinst5, 300, 560, 30, BLACK);
+                    DrawText(messageinst6, 300, 620, 30, BLACK);
                     DrawTextureRec(BotaoFechar, sourceRecfechar, (Vector2){ btnFecharrec.x, btnFecharrec.y}, WHITE);
                     
                     //mudando cor do botao "fechar"
@@ -398,7 +438,7 @@ int main(void)
 
                 DrawTexture(fundo,0,0,WHITE);
                  DrawTexture(fundo1,0,0,WHITE);
-                DrawCircle(position.x,position.y,50,RED);
+                 DrawRectangleRec(player, BLUE);
                 
                 
             }
@@ -454,6 +494,7 @@ int main(void)
             else if(cena==8){
 
                 DrawTexture(cozinhav,0,0,WHITE );
+                 DrawTexture(cozinhav1,0,0,WHITE );
                  DrawCircle(position.x,position.y,50,GREEN);
 
             }
