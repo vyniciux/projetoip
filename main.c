@@ -53,7 +53,7 @@ int main(void)
     Texture quarto6 = LoadTexture("assets/img00126.png");
     Texture quarto7 = LoadTexture("assets/img00127.png");
 
-    /////Quinha's codd///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////Quinha's code///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
    
     Vector2 nextPosition = { (float)screenWidth/2 + 100, (float)screenHeight/2};
@@ -163,14 +163,8 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
     int cena = 0;
     int cenapp = 1;
-
-    // Up=0,Donw=1,Left=2,Right=3
-    float Vel[4]={0,1,2,3};
     float VelPadrao = 15;
 
 
@@ -182,22 +176,14 @@ int main(void)
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
 
-        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) nextPosition.x += Vel[3];
-        if (IsKeyDown(KEY_LEFT)&& position.x>20) nextPosition.x -= Vel[2];
-        if (IsKeyDown(KEY_UP)&& position.y>220) nextPosition.y -= Vel[0];
-        if (IsKeyDown(KEY_DOWN)&& position.y<1050) nextPosition.y += Vel[1];
+        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) nextPosition.x += VelPadrao;
+        if (IsKeyDown(KEY_LEFT)&& position.x>20) nextPosition.x -= VelPadrao;
+        if (IsKeyDown(KEY_UP)&& position.y>220) nextPosition.y -= VelPadrao;
+        if (IsKeyDown(KEY_DOWN)&& position.y<1050) nextPosition.y += VelPadrao;
 
         if (IsKeyDown(KEY_M)) {VelPadrao+=0.5;}
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
         if (IsKeyDown(KEY_P)){if(cena!=0){cenapp=cena;} cena=0;}
-
-        Vel[0]=VelPadrao;
-        Vel[1]=VelPadrao;
-        Vel[2]=VelPadrao;
-        Vel[3]=VelPadrao;
-
-
-
         //LUCAS//------------------------
 
         player.x = nextPosition.x;

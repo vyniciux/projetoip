@@ -74,9 +74,6 @@ int colisao(Rectangle player, Cenas cena){
     int i;
     if(cena.qtdObstaculos==0) return 0;
     for(i=0;i<cena.qtdObstaculos;i++){
-        // BeginDrawing();
-        //     DrawRectangleRec(cena.obstaculos[i], RED);
-        // EndDrawing();
         if(CheckCollisionRecs(player, cena.obstaculos[i])) return 1;
     }
     return 0;
