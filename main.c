@@ -164,7 +164,7 @@ int main(void)
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     int cena = 0;
-    int cenapp = 1;
+    int cenapp = 2;
     float VelPadrao = 15;
 
 
@@ -423,10 +423,9 @@ int main(void)
             else if(cena == 1){
 
                 DrawTexture(fundo,0,0,WHITE);
-                 DrawTexture(fundo1,0,0,WHITE);
-                 DrawRectangleRec(player, BLUE);
-                
-                
+                DrawTexture(fundo1,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+                 
             }
         
             else  if(cena ==2){
@@ -434,7 +433,7 @@ int main(void)
 
                 DrawTexture(sala,0,0,WHITE);
                 DrawTexture(sala1,0,0,WHITE);
-                DrawCircle(position.x,position.y,50,BLUE);
+                DrawRectangleRec(player, BLUE);
               
             
             }
@@ -442,15 +441,15 @@ int main(void)
             else if(cena==3){
 
                 DrawTexture(fora,0,0,WHITE );
-                 DrawTexture(fora1,0,0,WHITE );
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawTexture(fora1,0,0,WHITE );
+                DrawRectangleRec(player, BLUE);
 
             }
 
             else if(cena==4){
 
                 DrawTexture(fora2,0,0,WHITE );
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
 
@@ -458,7 +457,7 @@ int main(void)
 
                 DrawTexture(casavizin,0,0,WHITE );
                 DrawTexture(casavizin1,0,0,WHITE );
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
              
@@ -466,14 +465,14 @@ int main(void)
 
                 DrawTexture(fora3,0,0,WHITE );
                 DrawTexture(fora4,0,0,WHITE );
-                DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
 
             else if(cena==7){
 
                 DrawTexture(salav,0,0,WHITE );
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
 
@@ -481,7 +480,7 @@ int main(void)
 
                 DrawTexture(cozinhav,0,0,WHITE );
                  DrawTexture(cozinhav1,0,0,WHITE );
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
 
@@ -490,15 +489,14 @@ int main(void)
                 DrawTexture(quarto,0,0,WHITE );
                 DrawTexture(quarto1,0,0,WHITE );
                 DrawTexture(quarto3,0,0,WHITE );
-
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
 
             else if(cena==10){
 
                 DrawTexture(fora,0,0,BLUE );
-                 DrawCircle(position.x,position.y,50,GREEN);
+                DrawRectangleRec(player, BLUE);
 
             }
 
