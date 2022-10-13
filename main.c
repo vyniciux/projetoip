@@ -136,7 +136,7 @@ int main(void)
     
     //mensagens:
     
-    const char messagejogar1[128] = "Sabrina sempre desconfiou que seu vizinho, Isac e como desde pequena";
+    const char messagejogar1[128] = "Sabrina sempre desconfiou que seu vizinho, Isac, escondia algo.";
     const char messagejogar3[128] = "sempre foi muito curiosa, resolveu invadir a casa dele a fim de encontrar";
     const char messagejogar2[128] = "Certo dia, Sabrina percebeu que Isac havia saido e como desde pequena";
     const char messagejogar4[128] = "alguma coisa que confirmasse sua desconfiança."; 
