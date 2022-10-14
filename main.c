@@ -52,6 +52,23 @@ int main(void)
     Texture quarto5 = LoadTexture("assets/img00125.png");
     Texture quarto6 = LoadTexture("assets/img00126.png");
     Texture quarto7 = LoadTexture("assets/img00127.png");
+    Texture salav1 = LoadTexture("assets/img00131.png");
+    Texture estantef = LoadTexture("assets/img00132.png");
+    Texture salaopened = LoadTexture("assets/img00134.png");
+    Texture banheiro = LoadTexture("assets/img00151.png");
+    Texture selva = LoadTexture("assets/img0016.png");
+
+    Texture salalab1 = LoadTexture("assets/puzzle estante/qt001.png");
+    Texture salalab2 = LoadTexture("assets/puzzle estante/qt002.png");
+    Texture salalab3 = LoadTexture("assets/puzzle estante/qt003.png");
+    Texture salalab4 = LoadTexture("assets/puzzle estante/qt004.png");
+    Texture salalab5 = LoadTexture("assets/puzzle estante/qt005.png");
+    Texture salalab6 = LoadTexture("assets/puzzle estante/qt006.png");
+    Texture salalab7 = LoadTexture("assets/puzzle estante/qt007.png");
+    Texture salalab8 = LoadTexture("assets/puzzle estante/qt008.png");
+    Texture salalab9 = LoadTexture("assets/puzzle estante/qt009.png");
+
+
 
     /////Quinha's code///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
@@ -163,8 +180,8 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 0;
-    int cenapp = 2;
+    int cena = 0;    /////troca aqui pra comecçar em outra cena  // controle de produção
+    int cenapp = 1;
     float VelPadrao = 15;
 
 
@@ -475,6 +492,7 @@ int main(void)
             else if(cena==7){
 
                 DrawTexture(salav,0,0,WHITE );
+                DrawTexture(salav1,0,0,WHITE );
                 DrawRectangleRec(player, BLUE);
 
             }
@@ -482,7 +500,7 @@ int main(void)
             else if(cena==8){
 
                 DrawTexture(cozinhav,0,0,WHITE );
-                 DrawTexture(cozinhav1,0,0,WHITE );
+                DrawTexture(cozinhav1,0,0,WHITE );
                 DrawRectangleRec(player, BLUE);
 
             }
@@ -498,11 +516,82 @@ int main(void)
 
             else if(cena==10){
 
-                DrawTexture(fora,0,0,BLUE );
+                DrawTexture(banheiro,0,0,WHITE);
                 DrawRectangleRec(player, BLUE);
 
             }
 
+            else if(cena==11){
+
+                DrawTexture(selva,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            //labirinto----------------------------------------------
+
+            else if(cena==12){
+
+                DrawTexture(salalab1,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==13){
+
+                DrawTexture(salalab2,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==14){
+
+                DrawTexture(salalab3,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==15){
+
+                DrawTexture(salalab4,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==16){
+
+                DrawTexture(salalab5,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==17){
+
+                DrawTexture(salalab6,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==18){
+
+                DrawTexture(salalab7,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==19){
+
+                DrawTexture(salalab8,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
+
+            else if(cena==20){
+
+                DrawTexture(salalab9,0,0,WHITE);
+                DrawRectangleRec(player, BLUE);
+
+            }
 
         EndDrawing();
         //----------------------------------------------------------------------------------
