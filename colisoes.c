@@ -19,7 +19,7 @@ void criarCenas(Cenas **cenas){
     (*cenas)[4].qtdPortas = 2;
     (*cenas)[5].qtdPortas = 3;
     (*cenas)[6].qtdPortas = 1;
-    (*cenas)[7].qtdPortas = 3;
+    (*cenas)[7].qtdPortas = 4;
     (*cenas)[8].qtdPortas = 1;
     (*cenas)[9].qtdPortas = 1;
     (*cenas)[10].qtdPortas = 1; //10-1 11-1 12-3 14-3 15-3 16-3 17-3 18-2 19-2 20-2
@@ -41,7 +41,7 @@ void criarCenas(Cenas **cenas){
     }
 
     Porta portas2[2] = {{{0, 625, 20, 180}, 2, 1, 1, 1795.0, 610.0},
-                        {{295, 1000, 255, 20}, 2, 3, 1, 878.0, 602.0}
+                        {{295, 1100, 255, 20}, 2, 3, 1, 878.0, 602.0}
                        };
     (*cenas)[2].portas = (Porta *) calloc((*cenas)[2].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[2].qtdPortas;i++){
@@ -66,7 +66,7 @@ void criarCenas(Cenas **cenas){
 
     Porta portas5[3] = {{{1910, 0, 20, 1080}, 5, 4, 1, 120.0, 520.0},
                         {{0, 0, 10, 1080}, 5, 6, 1, 1800.0, 520.0},
-                        {{480, 620, 135, 25}, 5, 7, 1, 945.0, 1050.0}
+                        {{465, 620, 140, 40}, 5, 7, 1, 1470, 950.0}
                        };
     (*cenas)[5].portas = (Porta *) calloc((*cenas)[5].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[5].qtdPortas;i++){
@@ -79,9 +79,10 @@ void criarCenas(Cenas **cenas){
         ((*cenas)[6].portas)[i] = portas6[i];
     }
 
-    Porta portas7[3] = {{{1450, 220, 255, 5}, 7, 9, 1, 1685.0, 965.0},
+    Porta portas7[4] = {{{1450, 220, 255, 5}, 7, 9, 1, 1685.0, 965.0},
                         {{0, 0, 10, 1080}, 7, 8, 1, 1800.0, 520.0},
-                        {{1910, 530, 10, 245}, 7, 10, 1, 10.0, 500.0}
+                        {{1910, 530, 10, 245}, 7, 10, 1, 10.0, 500.0},
+                        {{1375, 1050, 270, 10}, 7, 5, 1, 470, 686.0}
                        };
     (*cenas)[7].portas = (Porta *) calloc((*cenas)[7].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[7].qtdPortas;i++){

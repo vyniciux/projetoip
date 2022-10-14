@@ -198,7 +198,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 1;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
