@@ -7,7 +7,7 @@ void AnimPlayer(Texture2D Player, float FrameWidth, int *frame, float *mov, floa
 
 void AnimPato(Texture2D Pato, float FrameWidth2, int *frame2, float *mov2, float *px, float *py, float *x, float *y, float *Mov, int comida);
 
-void AnimEspelho(Texture2D Espelho, int *frame3);
+void AnimEspelho(Texture2D Espelho, int frame3, float x, float y);
 
 Rectangle AnimFogo(Texture2D Fire);
 
