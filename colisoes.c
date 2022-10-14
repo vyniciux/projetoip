@@ -22,6 +22,17 @@ void criarCenas(Cenas **cenas){
     (*cenas)[7].qtdPortas = 2;
     (*cenas)[8].qtdPortas = 0;
     (*cenas)[9].qtdPortas = 1;
+    (*cenas)[10].qtdPortas = 1;
+    /*(*cenas)[11].qtdPortas = 1;
+    (*cenas)[12].qtdPortas = 3;
+    (*cenas)[13].qtdPortas = 3;
+    (*cenas)[14].qtdPortas = 3;
+    (*cenas)[15].qtdPortas = 3;
+    (*cenas)[16].qtdPortas = 3;
+    (*cenas)[17].qtdPortas = 3;
+    (*cenas)[18].qtdPortas = 2;
+    (*cenas)[19].qtdPortas = 2;
+    (*cenas)[20].qtdPortas = 2;*/
 
     Porta portas1[1] = {{{1900, 535, 60, 190}, 1, 2, 1, 60.0, 690.0}};
     (*cenas)[1].portas = (Porta *) calloc((*cenas)[1].qtdPortas, sizeof(Porta));
