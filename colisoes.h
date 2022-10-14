@@ -20,8 +20,9 @@ typedef struct{
 
 void criarCenas(Cenas **cenas);
 
-int colisao(Rectangle player, Cenas cena);
+int colisaoMapa(Rectangle player, Cenas cena);
 
 int trocarCena(Rectangle player, float *x, float *y, Cenas cena, int *cenaAtual);
+
 
 #endif
