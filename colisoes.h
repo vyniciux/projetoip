@@ -3,9 +3,11 @@
 
 typedef struct{
     Rectangle area;
-    int check;  
     int origem;
     int destino;
+    int check; 
+    float destinoX;
+    float destinoY;
 } Porta;
 
 typedef struct{
@@ -13,10 +15,13 @@ typedef struct{
     Rectangle *obstaculos;
     int qtdObstaculos;
     Porta *portas;
+    int qtdPortas;
 } Cenas;
 
 void criarCenas(Cenas **cenas);
 
 int colisao(Rectangle player, Cenas cena);
+
+int trocarCena(Rectangle player, float *x, float *y, Cenas cena, int *cenaAtual);
 
 #endif
