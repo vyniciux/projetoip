@@ -29,6 +29,7 @@ int main(void)
     Texture2D BotaoInst = LoadTexture ("assets/Menu/botaoinst.png");
     Texture2D BotaoFechar = LoadTexture("assets/Menu/botaoclose.png");
     Texture2D Titulo = LoadTexture("assets/Menu/title.png");
+    Texture2D Lupa = LoadTexture("assets/Menu/lupa.png");
 
     Texture fundo = LoadTexture("assets/img005.png");
     Texture fundo1 = LoadTexture("assets/img0051.png");
@@ -70,7 +71,7 @@ int main(void)
     Texture salalab9 = LoadTexture("assets/puzzle estante/qt009.png");
 
     Texture2D Player =  LoadTexture("assets/personagemov.png");
-
+    Texture2D fogo =  LoadTexture("assets/img00133.png");
 
 
     ////Joao's code ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +199,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 1;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -426,8 +427,8 @@ int main(void)
                     
                   //  DrawTexture(mn1, 0, 0, WHITE);
                     DrawTexture(mn6, 0, 0, WHITE);
-                  //  DrawTexture(Lupa, 760, 50, WHITE);
-                    DrawText("SOBRE", 780, 100, 100, BLACK);
+                    DrawTexture(Lupa, 1070, 110, WHITE);
+                    DrawText("SOBRE", 680, 100, 100, BLACK);
                     DrawText(messagesobre1, 200, 240, 40, DARKBROWN);
                     DrawText(messagesobre2, 200, 300, 40, DARKBROWN);
                     DrawText(messagesobre3, 200, 360, 40, DARKBROWN);
@@ -445,8 +446,8 @@ int main(void)
                     
                     DrawTexture(mn1, 0, 0, DARKBROWN);
                     DrawTexture(mn6, 0, 0, WHITE);
-                    DrawText("INSTRUçÕES", 300, 120, 100,BLACK);
-                  // DrawTexture(Lupa, 840, 50, WHITE);
+                    DrawText("INSTRUçÕES", 320, 120, 100,BLACK);
+                    DrawTexture(Lupa, 1000, 130, WHITE);
                     DrawText(messageinst1, 300, 320, 30, BLACK);
                     DrawText(messageinst2, 300, 380, 30, BLACK);
                     DrawText(messageinst3, 300, 440, 30, BLACK);
@@ -517,7 +518,7 @@ int main(void)
 
                 DrawTexture(salav,0,0,WHITE );
                 DrawTexture(salav1,0,0,WHITE );
-              
+                AnimFogo(fogo);
 
             }
 
@@ -595,7 +596,7 @@ int main(void)
             else if(cena==18){
 
                 DrawTexture(salalab7,0,0,WHITE);
-              
+                
 
             }
 
