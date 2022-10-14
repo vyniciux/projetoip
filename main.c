@@ -71,6 +71,7 @@ int main(void)
     Texture salalab9 = LoadTexture("assets/puzzle estante/qt009.png");
 
     Texture2D Player =  LoadTexture("assets/personagemov.png");
+    Texture2D Pato =  LoadTexture("assets/pato.png");
     Texture2D fogo =  LoadTexture("assets/img00133.png");
 
 
