@@ -176,6 +176,9 @@ int main(void)
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
 
+        position.x = nextPosition.x;
+        position.y = nextPosition.y;
+
         if (IsKeyDown(KEY_RIGHT)&& position.x<1850) nextPosition.x += VelPadrao;
         if (IsKeyDown(KEY_LEFT)&& position.x>20) nextPosition.x -= VelPadrao;
         if (IsKeyDown(KEY_UP)&& position.y>220) nextPosition.y -= VelPadrao;
@@ -185,21 +188,21 @@ int main(void)
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
         if (IsKeyDown(KEY_P)){if(cena!=0){cenapp=cena;} cena=0;}
         //LUCAS//------------------------
+        
+        if(trocarCena(player, &(position.x), &(position.y), cenas[cena], &cena)==1){
+            nextPosition.x = position.x;
+            nextPosition.y = position.y;
+        }
 
         player.x = nextPosition.x;
         player.y = nextPosition.y;
 
-        if(colisao(player, cenas[cena])==1){
+        if(colisao(player, cenas[cena])==1){ //Houve colisão com algum objeto
           player.x = position.x;
           player.y = position.y;
           nextPosition.x = position.x;
           nextPosition.y = position.y;
         }
-        else{
-          position.x = nextPosition.x;
-          position.y = nextPosition.y;
-        }
-
         //-------------------------------
 
 
