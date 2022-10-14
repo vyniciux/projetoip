@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include <stdio.h>
+#include "animacao.h"
 
 void AnimPlayer(Texture2D Player, float FrameWidth, int *frame, float *Mov, int *x, int *y){
     int maxFrames = (int) (Player.width/(int)FrameWidth);
