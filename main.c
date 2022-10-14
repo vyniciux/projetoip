@@ -71,11 +71,21 @@ int main(void)
 
     Texture2D Player =  LoadTexture("assets/personagemov.png");
 
+
+
+    ////Joao's code ///////////////////////////////////////////////////////////////////////////////////////////////////
+
     float FrameWidth = (float) (Player.width/6);
     float x = 10;
     float y = 10;                                                 //PLAYER;
     int frame = 1;
     float Mov = 2;
+
+    InitAudioDevice();                                      //TESTANDO MUSICA
+    Music music = LoadMusicStream("assets/sons/MusicaTeste.mp3");          //TESTANDO MUSICA
+    PlayMusicStream(music);                                 //TESTANDO MUSICA
+    Sound sound = LoadSound("assets/sons/PokemonA.wav");
+    
 
 
     /////Quinha's code///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,7 +198,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 1;    /////troca aqui pra comecçar em outra cena  // controle de produção
+    int cena = 6;    /////troca aqui pra comecçar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 15;
 
@@ -197,6 +207,9 @@ int main(void)
 
     while (!WindowShouldClose())   
     {
+
+        UpdateMusicStream(music);                          //TOCAR MUSICA;
+
         // Update
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
