@@ -6,7 +6,7 @@
 void criarCenas(Cenas **cenas){
     int i;
 
-    for(i=0;i<10;i++){
+    for(i=0;i<11;i++){
         (*cenas)[i].codigoCena = i;
     }
 
@@ -33,6 +33,7 @@ void criarCenas(Cenas **cenas){
     (*cenas)[18].qtdPortas = 2;
     (*cenas)[19].qtdPortas = 2;
     (*cenas)[20].qtdPortas = 2;
+    (*cenas)[21].qtdPortas = 1;
 
     Porta portas1[1] = {{{1900, 535, 60, 190}, 1, 2, 1, 60.0, 690.0}};
     (*cenas)[1].portas = (Porta *) calloc((*cenas)[1].qtdPortas, sizeof(Porta));
@@ -106,6 +107,12 @@ void criarCenas(Cenas **cenas){
     for(i=0;i<(*cenas)[10].qtdPortas;i++){
         ((*cenas)[10].portas)[i] = portas10[i];
     }
+
+    Porta portas11[1] = {{{830, 1050, 175, 10}, 20, 7, 1, 385.0, 280.0},};
+    (*cenas)[10].portas = (Porta *) calloc((*cenas)[10].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[10].qtdPortas;i++){
+        ((*cenas)[10].portas)[i] = portas10[i];
+    }
     
     
     //Portas do último Puzzle
@@ -114,27 +121,27 @@ void criarCenas(Cenas **cenas){
     //As da esquerda seguem a ordem
     //As portas de baixo voltam 1 quarto na sequência
     
-    Porta portas12[3] = {{{830, 1070, 175, 10}, 12, 7, 1, 385.0, 280.0},
-                         {{315, 220, 235, 15}, 12, 19, 1, 917.0, 990.0},
-                         {{1335, 220, 240, 15}, 12, 16, 1, 917.0, 990.0}
+    Porta portas12[3] = {{{830, 1070, 175, 10}, 12, 12, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 12, 13, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 12, 20, 1, 917.0, 990.0}
                         };
     (*cenas)[12].portas = (Porta *) calloc((*cenas)[12].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[12].qtdPortas;i++){
         ((*cenas)[12].portas)[i] = portas12[i];
     }
 
-    Porta portas13[3] = {{{830, 1070, 175, 10}, 13, 20, 1, 385.0, 280.0},
-                         {{315, 220, 235, 15}, 13, 17, 1, 917.0, 990.0},
-                         {{1335, 220, 240, 15}, 13, 14, 1, 917.0, 990.0}
+    Porta portas13[3] = {{{830, 1070, 175, 10}, 13, 19, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 13, 14, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 13, 12, 1, 917.0, 990.0}
                         };
     (*cenas)[13].portas = (Porta *) calloc((*cenas)[13].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[13].qtdPortas;i++){
         ((*cenas)[13].portas)[i] = portas13[i];
     }
 
-    Porta portas14[3] = {{{830, 1070, 175, 10}, 14, 17, 1, 385.0, 280.0},
-                         {{315, 220, 235, 15}, 14, 18, 1, 917.0, 990.0},
-                         {{1335, 220, 240, 15}, 14, 12, 1, 917.0, 990.0}
+    Porta portas14[3] = {{{830, 1070, 175, 10}, 14, 19, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 14, 20, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 14, 15, 1, 917.0, 990.0}
                         };
     (*cenas)[14].portas = (Porta *) calloc((*cenas)[14].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[14].qtdPortas;i++){
@@ -143,33 +150,33 @@ void criarCenas(Cenas **cenas){
 
     Porta portas15[3] = {{{830, 1070, 175, 10}, 15, 16, 1, 385.0, 280.0},
                          {{315, 220, 235, 15}, 15, 20, 1, 917.0, 990.0},
-                         {{1335, 220, 240, 15}, 15, 13, 1, 917.0, 990.0}
+                         {{1335, 220, 240, 15}, 15, 19, 1, 917.0, 990.0}
                         };
     (*cenas)[15].portas = (Porta *) calloc((*cenas)[15].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[15].qtdPortas;i++){
         ((*cenas)[15].portas)[i] = portas15[i];
     }
 
-    Porta portas16[3] = {{{830, 1070, 175, 10}, 16, 19, 1, 385.0, 280.0},
-                         {{315, 220, 235, 15}, 16, 15, 1, 917.0, 990.0},
-                         {{1335, 220, 240, 15}, 16, 20, 1, 917.0, 990.0}
+    Porta portas16[3] = {{{830, 1070, 175, 10}, 16, 20, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 16, 17, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 16, 14, 1, 917.0, 990.0}
                         };
     (*cenas)[16].portas = (Porta *) calloc((*cenas)[16].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[16].qtdPortas;i++){
         ((*cenas)[16].portas)[i] = portas16[i];
     }
 
-    Porta portas17[3] = {{{830, 1070, 175, 10}, 17, 13, 1, 385.0, 280.0},
-                         {{315, 220, 235, 15}, 17, 14, 1, 917.0, 990.0},
-                         {{1335, 220, 240, 15}, 17, 18, 1, 917.0, 990.0}
+    Porta portas17[3] = {{{830, 1070, 175, 10}, 17, 19, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 17, 18, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 17, 13, 1, 917.0, 990.0}
                         };
     (*cenas)[17].portas = (Porta *) calloc((*cenas)[17].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[17].qtdPortas;i++){
         ((*cenas)[17].portas)[i] = portas17[i];
     }
 
-    Porta portas18[2] = {{{830, 1070, 175, 10}, 18, 14, 1, 385.0, 280.0},
-                        {{850, 220, 240, 15}, 18, 12, 1, 917.0, 990.0}
+    Porta portas18[2] = {{{830, 1070, 175, 10}, 18, 12, 1, 385.0, 280.0},
+                        {{850, 220, 240, 15}, 18, 11, 1, 917.0, 990.0}
                        };
     (*cenas)[18].portas = (Porta *) calloc((*cenas)[18].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[18].qtdPortas;i++){
@@ -177,20 +184,21 @@ void criarCenas(Cenas **cenas){
     }
 
     Porta portas19[2] = {{{830, 1070, 175, 10}, 19, 12, 1, 385.0, 280.0},
-                         {{850, 220, 240, 15}, 19, 16, 1, 917.0, 990.0}
+                         {{850, 220, 240, 15}, 19, 20, 1, 917.0, 990.0}
                         };
     (*cenas)[19].portas = (Porta *) calloc((*cenas)[19].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[19].qtdPortas;i++){
         ((*cenas)[19].portas)[i] = portas19[i];
     }
 
-    Porta portas20[2] = {{{830, 1070, 175, 10}, 20, 15, 1, 385.0, 280.0},
+    Porta portas20[2] = {{{830, 1070, 175, 10}, 20, 12, 1, 385.0, 280.0},
                          {{1335, 220, 240, 15}, 20, 13, 1, 917.0, 990.0}
                         };
     (*cenas)[20].portas = (Porta *) calloc((*cenas)[20].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[20].qtdPortas;i++){
         ((*cenas)[20].portas)[i] = portas20[i];
     }
+    
 
     //Vou adicionar amanhã junto com a origem e destino dos negócios:
     //Coordenadas das salas coloridas com duas portas = 315 220 235 15     1335 220 240 15
