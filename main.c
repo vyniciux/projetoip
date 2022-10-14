@@ -70,6 +70,17 @@ int main(void)
     Texture salalab8 = LoadTexture("assets/puzzle estante/qt008.png");
     Texture salalab9 = LoadTexture("assets/puzzle estante/qt009.png");
 
+    Texture num1 = LoadTexture("assets/puzzle estante/num23.png");
+    Texture num2 = LoadTexture("assets/puzzle estante/num11.png");
+    Texture num3 = LoadTexture("assets/puzzle estante/num02.png");
+    Texture num4 = LoadTexture("assets/puzzle estante/num31.png");
+    Texture num5 = LoadTexture("assets/puzzle estante/num79.png");
+    Texture num6 = LoadTexture("assets/puzzle estante/num09.png");
+    Texture num7 = LoadTexture("assets/puzzle estante/num01.png");
+    Texture num8 = LoadTexture("assets/puzzle estante/num03.png");
+    Texture num9 = LoadTexture("assets/puzzle estante/num15.png");
+
+
     Texture2D Player =  LoadTexture("assets/personagemov.png");
     Texture2D Pato =  LoadTexture("assets/pato.png");
     Texture2D fogo =  LoadTexture("assets/img00133.png");
@@ -211,7 +222,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 11;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 12;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -573,38 +584,41 @@ int main(void)
             else if(cena==12){
 
                 DrawTexture(salalab1,0,0,WHITE);
-               
+               DrawTexture(num1,0,10,WHITE);
 
             }
 
             else if(cena==13){
 
                 DrawTexture(salalab2,0,0,WHITE);
-              
+                DrawTexture(num2,0,10,WHITE);
 
             }
 
             else if(cena==14){
 
                 DrawTexture(salalab3,0,0,WHITE);
-            
+                DrawTexture(num3,0,10,WHITE);
 
             }
 
             else if(cena==15){
 
                 DrawTexture(salalab4,0,0,WHITE);
+                DrawTexture(num4,0,10,WHITE);
             }
 
             else if(cena==16){
 
                 DrawTexture(salalab5,0,0,WHITE);
+                DrawTexture(num5,0,10,WHITE);
              
             }
 
             else if(cena==17){
 
                 DrawTexture(salalab6,0,0,WHITE);
+                DrawTexture(num6,0,10,WHITE);
                
 
             }
@@ -612,6 +626,7 @@ int main(void)
             else if(cena==18){
 
                 DrawTexture(salalab7,0,0,WHITE);
+                DrawTexture(num7,0,10,WHITE);
                 
 
             }
@@ -619,12 +634,14 @@ int main(void)
             else if(cena==19){
 
                 DrawTexture(salalab8,0,0,WHITE);
+                DrawTexture(num8,0,10,WHITE);
                
             }
 
             else if(cena==20){
 
                 DrawTexture(salalab9,0,0,WHITE);
+                DrawTexture(num9,0,10,WHITE);
              
 
             }
