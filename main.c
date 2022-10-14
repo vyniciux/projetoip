@@ -60,6 +60,13 @@ int main(void)
     Texture banheiro = LoadTexture("assets/img00151.png");
     Texture selva = LoadTexture("assets/img0016.png");
 
+
+    Texture senha1 = LoadTexture("assets/Menu/lonb01.png");
+    Texture senha2 = LoadTexture("assets/Menu/lonb02.png");
+    Texture senha3 = LoadTexture("assets/Menu/lonb03.png");
+    Texture senha4 = LoadTexture("assets/Menu/lonb00.png");
+    Texture senha5 = LoadTexture("assets/Menu/lonb04.png");
+
     Texture salalab1 = LoadTexture("assets/puzzle estante/qt001.png");
     Texture salalab2 = LoadTexture("assets/puzzle estante/qt002.png");
     Texture salalab3 = LoadTexture("assets/puzzle estante/qt003.png");
@@ -130,7 +137,7 @@ int main(void)
    
     Vector2 nextPosition = { (float)screenWidth/2 + 100, (float)screenHeight/2};
     Cenas *cenas;
-    cenas = (Cenas *) malloc (21 * sizeof(Cenas));
+    cenas = (Cenas *) malloc (22 * sizeof(Cenas));
     criarCenas(&cenas); 
     Rectangle player = {position.x, position.y, 100, 80};
     
@@ -139,8 +146,9 @@ int main(void)
     
     
     //Giovanna's code///////////////////////////////////////////////////////////////////////////////////////////////////////
-    
         
+    Vector2 PosMouse = { 0.0f, 0.0f };   
+
     //usado para animacao das nuvens
     float movnuvens = 0.0f;
     
@@ -228,14 +236,77 @@ int main(void)
     const char messageinst5[128] = "PARA QUE SABRINA INTERAJA COM ALGO APERTE : E";
     const char messageinst6[128] = "PARA PAUSAR O JOGO APERTE : P";
                                  
-    Vector2 PosMouse = { 0.0f, 0.0f };
+  
 
     int currentScreen=1;
+
+
+    //senha 1
+    float frameHeights1 = (float)senha1.height/NUM_FRAMES;
+    
+    Rectangle sourceRecs1 = {0, 0,(float)senha1.width, frameHeights1+200};
+    
+    Rectangle btnS1rec = { 600, 400,(float)senha1.width, frameHeights1+200};
+    
+    int btns1 = 0;
+    
+    int btnActions1 = false;
+   
+    
+    // senha 2
+    float frameHeights2 = (float)senha2.height/NUM_FRAMES;
+    
+    Rectangle sourceRecs2 = {0, 0,(float)senha2.width, frameHeights2+200};
+    
+    Rectangle btnS2rec = { 200, 600,(float)senha2.width, frameHeights2+200};
+    
+    int btns2 = 0;
+    
+    int btnActions2 = false;
+    
+    //senha 3
+    
+    float frameHeights3 = (float)senha3.height/NUM_FRAMES;
+    
+    Rectangle sourceRecs3 = {0, 0,(float)senha3.width, frameHeights3+180};
+    
+    Rectangle btnS3rec = { 1000, 600,(float)senha3.width, frameHeights3+180};
+    
+    int btns3 = 0;
+    
+    int btnActions3 = false;
+    
+    //senha 4
+   
+    
+    float frameHeights4 = (float)senha4.height/NUM_FRAMES;
+    
+    Rectangle sourceRecs4 = {0, 0,(float)senha4.width, frameHeights4+180};
+    
+    Rectangle btnS4rec = { 200, 800,(float)senha4.width, frameHeights4+180};
+    
+    int btns4 = 0;
+    
+    int btnActions4 = false;
+    
+    //senha 5
+    
+    
+    float frameHeights5 = (float)senha5.height/NUM_FRAMES;
+    
+    Rectangle sourceRecs5 = {0, 0,(float)senha5.width, frameHeights5+180};
+    
+    Rectangle btnS5rec = { 1000, 800,(float)senha5.width, frameHeights5+180};
+    
+    int btns5 = 0;
+    
+    int btnActions5 = false;
+
     
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 9;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 18;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -263,7 +334,11 @@ int main(void)
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
         if (IsKeyDown(KEY_P)){if(cena!=0){cenapp=cena;} cena=0;}
         //LUCAS//------------------------
-        
+
+
+
+
+
         if(trocarCena(player, &(nextPosition.x), &(nextPosition.y), cenas[cena], &cena)==1){
             position.x = nextPosition.x;
             position.y = nextPosition.y;
@@ -278,6 +353,10 @@ int main(void)
           nextPosition.x = position.x;
           nextPosition.y = position.y;
         }
+     
+     
+     
+     
         //-------------------------------
 
 
@@ -398,12 +477,80 @@ int main(void)
           }
        
         }
+        
+        else if(cena==21){
+
+        if (CheckCollisionPointRec(PosMouse, btnS1rec))
+            {
+                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns1 = 2;
+                else btns1 = 1;
+
+                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions1 = true;
+            }
+        else btnActions1 = 0;
+             
+        sourceRecs1.y = btns1*(frameHeights1-55);
+        
+        //checando colisao com o botao 2
+        
+        if (CheckCollisionPointRec(PosMouse, btnS2rec))
+            {
+                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns2 = 2;
+                else btns2 = 1;
+
+                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions2 = true;
+            }
+        else btnActions2 = 0;
+            
+        sourceRecs2.y = btns2*(frameHeights2-55);
+        
+        //checando colisao com o botao 3
+        if (CheckCollisionPointRec(PosMouse, btnS3rec))
+            {
+                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns3 = 2;
+                else btns3 = 1;
+
+                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions3= true;
+            }
+        else btnActions3 = 0;
+            
+        sourceRecs3.y = btns3*(frameHeights3-55);
+        
+        //checando colisao com o botao 4
+        
+        if (CheckCollisionPointRec(PosMouse, btnS4rec))
+            {
+                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns4 = 2;
+                else btns4 = 1;
+
+                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions4 = true;
+            }
+        else btnActions4 = 0;
+            
+        sourceRecs4.y = btns4*(frameHeights4-55);
+        
+        //checando colisao com o botao 5
+        
+        if (CheckCollisionPointRec(PosMouse, btnS5rec))
+            {
+                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns5 = 2;
+                else btns5 = 1;
+
+                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions5 = true;
+            }
+        else btnActions5 = 0;
+         
+        sourceRecs5.y = btns5*(frameHeights5-55);
+        
+        }
+        
         //------------------------------
 
 
         printf("X=%.1f ",position.x);
         printf("Y=%.1f ",position.y);
         printf("Cena=%d\n",cena);
+
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -411,12 +558,8 @@ int main(void)
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
-             ClearBackground(BLUE);
-
-           
-
-
-                   
+            ClearBackground(BLUE);
+            
             if(cena==0 ){
 
               switch(currentScreen)
@@ -659,7 +802,21 @@ int main(void)
 
             }
 
-            if(cena>0){
+            
+            if(cena==21){
+
+            ClearBackground(BLUE);
+            DrawTexture(mn6, 0, 0, WHITE);
+            DrawText("Qual a senha?",450,200,150,BLACK);
+            DrawTextureRec(senha1, sourceRecs1, (Vector2){ btnS1rec.x, btnS1rec.y}, WHITE);
+            DrawTextureRec(senha2, sourceRecs2, (Vector2){ btnS2rec.x, btnS2rec.y}, WHITE);
+            DrawTextureRec(senha3, sourceRecs3, (Vector2){ btnS3rec.x, btnS3rec.y}, WHITE);
+            DrawTextureRec(senha4, sourceRecs4, (Vector2){ btnS4rec.x, btnS4rec.y}, WHITE);
+            DrawTextureRec(senha5, sourceRecs5, (Vector2){ btnS5rec.x, btnS5rec.y}, WHITE);
+            
+            }
+
+            else if(cena>0){
 
                 Vector2 vec = {nextPosition.x-200, nextPosition.y-250};
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
