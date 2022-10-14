@@ -7,7 +7,7 @@ typedef struct Player {
     float posX; // = position.x
     float posY;
     bool key[5]; //numero de fases
-    bool itens[5];
-} Player;
+    bool itensUti[5];
+} Jogador;
 
 #endif
