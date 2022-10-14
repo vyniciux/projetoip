@@ -66,7 +66,7 @@ void criarCenas(Cenas **cenas){
 
     Porta portas5[3] = {{{1910, 0, 20, 1080}, 5, 4, 1, 120.0, 520.0},
                         {{0, 0, 10, 1080}, 5, 6, 1, 1800.0, 520.0},
-                        {{465, 620, 140, 40}, 5, 7, 1, 1470, 950.0}
+                        {{465, 620, 140, 25}, 5, 7, 1, 1470, 950.0}
                        };
     (*cenas)[5].portas = (Porta *) calloc((*cenas)[5].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[5].qtdPortas;i++){

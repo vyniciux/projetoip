@@ -228,9 +228,9 @@ int main(void)
         if (IsKeyDown(KEY_P)){if(cena!=0){cenapp=cena;} cena=0;}
         //LUCAS//------------------------
         
-        if(trocarCena(player, &(position.x), &(position.y), cenas[cena], &cena)==1){
-            nextPosition.x = position.x;
-            nextPosition.y = position.y;
+        if(trocarCena(player, &(nextPosition.x), &(nextPosition.y), cenas[cena], &cena)==1){
+            position.x = nextPosition.x;
+            position.y = nextPosition.y;
         }
 
         player.x = nextPosition.x;
