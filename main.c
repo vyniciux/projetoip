@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "colisoes.h"
+#include "animacao.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -68,6 +69,13 @@ int main(void)
     Texture salalab8 = LoadTexture("assets/puzzle estante/qt008.png");
     Texture salalab9 = LoadTexture("assets/puzzle estante/qt009.png");
 
+    Texture2D Player =  LoadTexture("assets/personagemov.png");
+
+    float FrameWidth = (float) (Player.width/6);
+    float x = 10;
+    float y = 10;                                                 //PLAYER;
+    int frame = 1;
+    float Mov = 2;
 
 
     /////Quinha's code///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +85,7 @@ int main(void)
     Cenas *cenas;
     cenas = (Cenas *) malloc (10 * sizeof(Cenas));
     criarCenas(&cenas); 
-    Rectangle player = {position.x, position.y, 30, 40};
+    Rectangle player = {position.x, position.y, 100, 80};
     
 
     //FINAL DO CÓDIGO DO QUNHAS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -180,7 +188,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 0;    /////troca aqui pra comecçar em outra cena  // controle de produção
+    int cena = 1;    /////troca aqui pra comecçar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 15;
 
@@ -196,10 +204,10 @@ int main(void)
         position.x = nextPosition.x;
         position.y = nextPosition.y;
 
-        if (IsKeyDown(KEY_RIGHT)&& position.x<1890) nextPosition.x += VelPadrao;
-        if (IsKeyDown(KEY_LEFT)&& position.x>0) nextPosition.x -= VelPadrao;
-        if (IsKeyDown(KEY_UP)&& position.y>220) nextPosition.y -= VelPadrao;
-        if (IsKeyDown(KEY_DOWN)&& position.y<1040) nextPosition.y += VelPadrao;
+        if (IsKeyDown(KEY_D)&& position.x<1890) nextPosition.x += VelPadrao;
+        if (IsKeyDown(KEY_A)&& position.x>0) nextPosition.x -= VelPadrao;
+        if (IsKeyDown(KEY_W)&& position.y>220) nextPosition.y -= VelPadrao;
+        if (IsKeyDown(KEY_S)&& position.y<1040) nextPosition.y += VelPadrao;
 
         if (IsKeyDown(KEY_M)) {VelPadrao+=0.5;}
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
@@ -354,6 +362,10 @@ int main(void)
         BeginDrawing();
 
              ClearBackground(BLUE);
+
+           
+
+
                    
             if(cena==0 ){
 
@@ -444,7 +456,7 @@ int main(void)
 
                 DrawTexture(fundo,0,0,WHITE);
                 DrawTexture(fundo1,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+             
                  
             }
         
@@ -453,7 +465,7 @@ int main(void)
 
                 DrawTexture(sala,0,0,WHITE);
                 DrawTexture(sala1,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+             
               
             
             }
@@ -462,14 +474,14 @@ int main(void)
 
                 DrawTexture(fora,0,0,WHITE );
                 DrawTexture(fora1,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
+             
 
             }
 
             else if(cena==4){
 
                 DrawTexture(fora2,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
@@ -477,15 +489,14 @@ int main(void)
 
                 DrawTexture(casavizin,0,0,WHITE );
                 DrawTexture(casavizin1,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
-
+              
             }
              
             else if(cena==6){
 
                 DrawTexture(fora3,0,0,WHITE );
                 DrawTexture(fora4,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
+            
 
             }
 
@@ -493,7 +504,7 @@ int main(void)
 
                 DrawTexture(salav,0,0,WHITE );
                 DrawTexture(salav1,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
@@ -501,8 +512,7 @@ int main(void)
 
                 DrawTexture(cozinhav,0,0,WHITE );
                 DrawTexture(cozinhav1,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
-
+             
             }
 
             else if(cena==9){
@@ -510,21 +520,21 @@ int main(void)
                 DrawTexture(quarto,0,0,WHITE );
                 DrawTexture(quarto1,0,0,WHITE );
                 DrawTexture(quarto3,0,0,WHITE );
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
             else if(cena==10){
 
                 DrawTexture(banheiro,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
             else if(cena==11){
 
                 DrawTexture(selva,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
@@ -533,67 +543,77 @@ int main(void)
             else if(cena==12){
 
                 DrawTexture(salalab1,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+               
 
             }
 
             else if(cena==13){
 
                 DrawTexture(salalab2,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
             else if(cena==14){
 
                 DrawTexture(salalab3,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+            
 
             }
 
             else if(cena==15){
 
                 DrawTexture(salalab4,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+            
 
             }
 
             else if(cena==16){
 
                 DrawTexture(salalab5,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+             
 
             }
 
             else if(cena==17){
 
                 DrawTexture(salalab6,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+               
 
             }
 
             else if(cena==18){
 
                 DrawTexture(salalab7,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+              
 
             }
 
             else if(cena==19){
 
                 DrawTexture(salalab8,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
-
+               
             }
 
             else if(cena==20){
 
                 DrawTexture(salalab9,0,0,WHITE);
-                DrawRectangleRec(player, BLUE);
+             
 
             }
 
-        EndDrawing();
+            if(cena>0){
+
+                Vector2 vec = {nextPosition.x-200, nextPosition.y-250};
+                AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
+                Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
+                DrawTextureRec(Player, Character, vec, RAYWHITE);
+
+            } 
+            
+            
+            
+            EndDrawing();
         //----------------------------------------------------------------------------------
     }
 
