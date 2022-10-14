@@ -222,7 +222,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 12;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -652,7 +652,6 @@ int main(void)
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
                 Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
-                DrawRectangleRec(player, BLUE);
             } 
             
             
