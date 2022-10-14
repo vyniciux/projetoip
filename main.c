@@ -85,6 +85,19 @@ int main(void)
     Texture2D Pato =  LoadTexture("assets/pato.png");
     Texture2D fogo =  LoadTexture("assets/img00133.png");
 
+    //itens
+    Texture2D chave = LoadTexture("assets/itens/iten007.png");
+    Texture2D maca = LoadTexture("assets/itens/iten005.png");
+    Texture2D livro = LoadTexture("assets/itens/iten0010.png");
+    Texture2D baldeVazio = LoadTexture("assets/itens/iten008.png");
+    Texture2D baldeCheio = LoadTexture("assets/itens/iten009.png");
+ 
+    Texture2D *texturasDeItens = (Texture2D *) calloc(5, sizeof(Texture2D));
+    texturasDeItens[0] = chave;
+    texturasDeItens[1] = maca;
+    texturasDeItens[2] = livro;
+    texturasDeItens[3] = baldeVazio;
+    texturasDeItens[4] = baldeCheio;
 
     ////Joao's code ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -222,7 +235,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 9;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -652,6 +665,7 @@ int main(void)
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
                 Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
+                DrawRectangleRec(player, BLUE);
             } 
             
             
