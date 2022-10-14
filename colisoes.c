@@ -19,20 +19,20 @@ void criarCenas(Cenas **cenas){
     (*cenas)[4].qtdPortas = 2;
     (*cenas)[5].qtdPortas = 3;
     (*cenas)[6].qtdPortas = 1;
-    (*cenas)[7].qtdPortas = 2;
-    (*cenas)[8].qtdPortas = 0;
+    (*cenas)[7].qtdPortas = 3;
+    (*cenas)[8].qtdPortas = 1;
     (*cenas)[9].qtdPortas = 1;
-    (*cenas)[10].qtdPortas = 0;
-    /*(*cenas)[11].qtdPortas = 1;
-    (*cenas)[12].qtdPortas = 3;
-    (*cenas)[13].qtdPortas = 3;
-    (*cenas)[14].qtdPortas = 3;
-    (*cenas)[15].qtdPortas = 3;
-    (*cenas)[16].qtdPortas = 3;
-    (*cenas)[17].qtdPortas = 3;
-    (*cenas)[18].qtdPortas = 2;
-    (*cenas)[19].qtdPortas = 2;
-    (*cenas)[20].qtdPortas = 2;*/
+    (*cenas)[10].qtdPortas = 1; //10-1 11-1 12-3 14-3 15-3 16-3 17-3 18-2 19-2 20-2
+    (*cenas)[11].qtdPortas = 0;
+    (*cenas)[12].qtdPortas = 0;
+    (*cenas)[13].qtdPortas = 0;
+    (*cenas)[14].qtdPortas = 0;
+    (*cenas)[15].qtdPortas = 0;
+    (*cenas)[16].qtdPortas = 0;
+    (*cenas)[17].qtdPortas = 0;
+    (*cenas)[18].qtdPortas = 0;
+    (*cenas)[19].qtdPortas = 0;
+    (*cenas)[20].qtdPortas = 0;
 
     Porta portas1[1] = {{{1900, 535, 60, 190}, 1, 2, 1, 60.0, 690.0}};
     (*cenas)[1].portas = (Porta *) calloc((*cenas)[1].qtdPortas, sizeof(Porta));
@@ -79,12 +79,19 @@ void criarCenas(Cenas **cenas){
         ((*cenas)[6].portas)[i] = portas6[i];
     }
 
-    Porta portas7[2] = {{{1450, 220, 255, 5}, 7, 9, 1, 1685.0, 965.0},
-                        {{0, 0, 10, 1080}, 7, 8, 1, 1880.0, 520.0}
+    Porta portas7[3] = {{{1450, 220, 255, 5}, 7, 9, 1, 1685.0, 965.0},
+                        {{0, 0, 10, 1080}, 7, 8, 1, 1800.0, 520.0},
+                        {{1910, 530, 10, 245}, 7, 10, 1, 10.0, 500.0}
                        };
     (*cenas)[7].portas = (Porta *) calloc((*cenas)[7].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[7].qtdPortas;i++){
         ((*cenas)[7].portas)[i] = portas7[i];
+    }
+
+    Porta portas8[1] = {{{1900, 0, 20, 1080}, 8, 7, 1, 10.0, 520.0}};
+    (*cenas)[8].portas = (Porta *) calloc((*cenas)[8].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[8].qtdPortas;i++){
+        ((*cenas)[8].portas)[i] = portas8[i];
     }
 
     Porta portas9[1] = {{{1585, 1050, 240, 10}, 9, 7, 1, 1555.0, 235.0}};
@@ -93,7 +100,16 @@ void criarCenas(Cenas **cenas){
         ((*cenas)[9].portas)[i] = portas9[i];
     }
 
-    //-----------------------FIM DA DECLARAÇÃO DAS PORTAS-----------------------------------------
+    Porta portas10[1] = {{{0, 0, 10, 1080}, 10, 7, 1, 1795.0, 605.0}};
+    (*cenas)[10].portas = (Porta *) calloc((*cenas)[10].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[10].qtdPortas;i++){
+        ((*cenas)[10].portas)[i] = portas10[i];
+    }
+
+    //Vou adicionar amanhã junto com a origem e destino dos negócios:
+    //Coordenadas das salas coloridas com duas portas = 315 220 235 15     1335 220 240 15
+    //Coordenadas das salas coloridas com só uma porta = 850 220 240 15
+    //-----------------------FIM DA DECLARAÇÃO DAS PORTAS------------------------------------------------
 
     //-----------------------INÍCIO DA DECLARAÇÃO DOS OBSTÁCULOS-----------------------------------------
     (*cenas)[0].qtdObstaculos = 0;
@@ -103,9 +119,21 @@ void criarCenas(Cenas **cenas){
     (*cenas)[4].qtdObstaculos = 0;
     (*cenas)[5].qtdObstaculos = 3;
     (*cenas)[6].qtdObstaculos = 4;
-    (*cenas)[7].qtdObstaculos = 0;
-    (*cenas)[8].qtdObstaculos = 0;
+    (*cenas)[7].qtdObstaculos = 4;
+    (*cenas)[8].qtdObstaculos = 6;
     (*cenas)[9].qtdObstaculos = 4;
+    (*cenas)[10].qtdObstaculos = 3;
+    (*cenas)[11].qtdObstaculos = 5;
+    (*cenas)[12].qtdObstaculos = 0;
+    (*cenas)[13].qtdObstaculos = 0;
+    (*cenas)[14].qtdObstaculos = 0;
+    (*cenas)[15].qtdObstaculos = 0;
+    (*cenas)[16].qtdObstaculos = 0;
+    (*cenas)[17].qtdObstaculos = 0;
+    (*cenas)[18].qtdObstaculos = 0;
+    (*cenas)[19].qtdObstaculos = 0;
+    (*cenas)[20].qtdObstaculos = 0;
+
 
     Rectangle obstaculos1[3]= {{160, 220, 370, 505}, 
                                {710, 220, 220, 155}, 
@@ -155,6 +183,27 @@ void criarCenas(Cenas **cenas){
         ((*cenas)[6].obstaculos)[i] = obstaculos6[i];
     }
 
+    Rectangle obstaculos7[4] = {{250, 730, 255, 450}, 
+                               {435, 220, 250, 170},
+                               {760, 220, 550, 185},
+                               {760, 740, 255, 220}
+                              };
+    (*cenas)[7].obstaculos = (Rectangle *) calloc((*cenas)[7].qtdObstaculos, sizeof(Rectangle));
+    for(i=0; i<(*cenas)[7].qtdObstaculos; i++){
+        ((*cenas)[7].obstaculos)[i] = obstaculos7[i];
+    }
+
+    Rectangle obstaculos8[6] = {{490, 220, 1430, 265}, 
+                               {80, 220, 335, 265},
+                               {0, 705, 385, 375},
+                               {895, 710, 385, 370},
+                               {705, 735, 175, 345},
+                               {1313, 730, 172, 145}
+                              };
+    (*cenas)[8].obstaculos = (Rectangle *) calloc((*cenas)[8].qtdObstaculos, sizeof(Rectangle));
+    for(i=0; i<(*cenas)[8].qtdObstaculos; i++){
+        ((*cenas)[8].obstaculos)[i] = obstaculos8[i];
+    }
 
     Rectangle obstaculos9[4] = {{1295, 220, 130, 225}, 
                                {1295, 665, 130, 415},
@@ -165,24 +214,40 @@ void criarCenas(Cenas **cenas){
     for(i=0; i<(*cenas)[9].qtdObstaculos; i++){
         ((*cenas)[9].obstaculos)[i] = obstaculos9[i];
     }
+
+    Rectangle obstaculos10[3] ={{290, 220, 765, 140}, 
+                                {340, 360, 670, 160},
+                                {1535, 220, 175, 210}
+                               };
+    (*cenas)[10].obstaculos = (Rectangle *) calloc((*cenas)[10].qtdObstaculos, sizeof(Rectangle));
+    for(i=0; i<(*cenas)[10].qtdObstaculos; i++){
+        ((*cenas)[10].obstaculos)[i] = obstaculos10[i];
+    }
+    
+    Rectangle obstaculos11[5]={{145, 220, 385, 55}, 
+                               {320, 220, 130, 270},
+                               {1030, 220, 365, 250},
+                               {1355, 220, 310, 65},
+                               {1520, 220, 125, 280}
+                              };
+    (*cenas)[11].obstaculos = (Rectangle *) calloc((*cenas)[11].qtdObstaculos, sizeof(Rectangle));
+    for(i=0; i<(*cenas)[11].qtdObstaculos; i++){
+        ((*cenas)[11].obstaculos)[i] = obstaculos11[i];
+    }
+
     //-----------------------FINAL DA DECLARAÇÃO DOS OBSTÁCULOS-----------------------------------------
-    printf("Testou colisão\n");
 }
 
 int colisao(Rectangle player, Cenas cena){
     int i;
-    printf("Testou a colisão de verdade\n");
     if(cena.qtdObstaculos==0) {
-        printf("Testou a colisão de verdade\n");
         return 0;
     }
     for(i=0;i<cena.qtdObstaculos;i++){
         if(CheckCollisionRecs(player, cena.obstaculos[i])) {
-            printf("Testou a colisão de verdade\n");
             return 1;
         }
     }
-    printf("Testou a colisão de verdade\n");
     return 0;
 }
 
@@ -198,6 +263,5 @@ int trocarCena(Rectangle player, float *x, float *y, Cenas cena, int *cenaAtual)
             }
         }
     }
-    printf("Testou a passagem de verdade\n");
     return 0;
 }

@@ -198,9 +198,9 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 9;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
-    float VelPadrao = 15;
+    float VelPadrao = 5;
 
 
     SetTargetFPS(60);           
@@ -213,7 +213,6 @@ int main(void)
         // Update
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
-        printf("Testou a colisão de verdade\n");
 
         position.x = nextPosition.x;
         position.y = nextPosition.y;
@@ -578,15 +577,12 @@ int main(void)
             else if(cena==15){
 
                 DrawTexture(salalab4,0,0,WHITE);
-            
-
             }
 
             else if(cena==16){
 
                 DrawTexture(salalab5,0,0,WHITE);
              
-
             }
 
             else if(cena==17){
@@ -622,7 +618,7 @@ int main(void)
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
                 Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
-
+                DrawRectangleRec(player, BLUE);
             } 
             
             
