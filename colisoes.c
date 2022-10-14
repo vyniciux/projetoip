@@ -22,7 +22,7 @@ void criarCenas(Cenas **cenas){
     (*cenas)[7].qtdPortas = 2;
     (*cenas)[8].qtdPortas = 0;
     (*cenas)[9].qtdPortas = 1;
-    (*cenas)[10].qtdPortas = 1;
+    (*cenas)[10].qtdPortas = 0;
     /*(*cenas)[11].qtdPortas = 1;
     (*cenas)[12].qtdPortas = 3;
     (*cenas)[13].qtdPortas = 3;
@@ -49,23 +49,23 @@ void criarCenas(Cenas **cenas){
     }
 
     Porta portas3[2] = {{{803, 567, 150, 17}, 3, 2, 1, 415.0, 960.0},
-                        {{0, 0, 10, 1080}, 3, 4, 1, 1860.0, 520.0}
+                        {{0, 0, 10, 1080}, 3, 4, 1, 1800.0, 520.0}
                        };
     (*cenas)[3].portas = (Porta *) calloc((*cenas)[3].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[3].qtdPortas;i++){
         ((*cenas)[3].portas)[i] = portas3[i];
     }
 
-    Porta portas4[2] = {{{1910, 0, 20, 1080}, 4, 3, 1, 20.0, 520.0},
-                        {{0, 0, 10, 1080}, 4, 5, 1, 1880.0, 520.0}
+    Porta portas4[2] = {{{1910, 0, 20, 1080}, 4, 3, 1, 120.0, 520.0},
+                        {{0, 0, 10, 1080}, 4, 5, 1, 1800.0, 520.0}
                        };
     (*cenas)[4].portas = (Porta *) calloc((*cenas)[4].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[4].qtdPortas;i++){
         ((*cenas)[4].portas)[i] = portas4[i];
     }
 
-    Porta portas5[3] = {{{1910, 0, 20, 1080}, 5, 4, 1, 20.0, 520.0},
-                        {{0, 0, 10, 1080}, 5, 6, 1, 1880.0, 520.0},
+    Porta portas5[3] = {{{1910, 0, 20, 1080}, 5, 4, 1, 120.0, 520.0},
+                        {{0, 0, 10, 1080}, 5, 6, 1, 1800.0, 520.0},
                         {{480, 620, 135, 25}, 5, 7, 1, 945.0, 1050.0}
                        };
     (*cenas)[5].portas = (Porta *) calloc((*cenas)[5].qtdPortas, sizeof(Porta));
@@ -165,15 +165,24 @@ void criarCenas(Cenas **cenas){
     for(i=0; i<(*cenas)[9].qtdObstaculos; i++){
         ((*cenas)[9].obstaculos)[i] = obstaculos9[i];
     }
-    //-----------------------INÍCIO DA DECLARAÇÃO DOS OBSTÁCULOS-----------------------------------------
+    //-----------------------FINAL DA DECLARAÇÃO DOS OBSTÁCULOS-----------------------------------------
+    printf("Testou colisão\n");
 }
 
 int colisao(Rectangle player, Cenas cena){
     int i;
-    if(cena.qtdObstaculos==0) return 0;
-    for(i=0;i<cena.qtdObstaculos;i++){
-        if(CheckCollisionRecs(player, cena.obstaculos[i])) return 1;
+    printf("Testou a colisão de verdade\n");
+    if(cena.qtdObstaculos==0) {
+        printf("Testou a colisão de verdade\n");
+        return 0;
     }
+    for(i=0;i<cena.qtdObstaculos;i++){
+        if(CheckCollisionRecs(player, cena.obstaculos[i])) {
+            printf("Testou a colisão de verdade\n");
+            return 1;
+        }
+    }
+    printf("Testou a colisão de verdade\n");
     return 0;
 }
 
@@ -189,5 +198,6 @@ int trocarCena(Rectangle player, float *x, float *y, Cenas cena, int *cenaAtual)
             }
         }
     }
+    printf("Testou a passagem de verdade\n");
     return 0;
 }

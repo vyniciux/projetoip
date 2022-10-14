@@ -93,7 +93,7 @@ int main(void)
    
     Vector2 nextPosition = { (float)screenWidth/2 + 100, (float)screenHeight/2};
     Cenas *cenas;
-    cenas = (Cenas *) malloc (10 * sizeof(Cenas));
+    cenas = (Cenas *) malloc (21 * sizeof(Cenas));
     criarCenas(&cenas); 
     Rectangle player = {position.x, position.y, 100, 80};
     
@@ -198,7 +198,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 0;    /////troca aqui pra comecçar em outra cena  // controle de produção
+    int cena = 9;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 15;
 
@@ -213,6 +213,7 @@ int main(void)
         // Update
         //---------------------------------------0------------------------------------------
         // TODO: Update your variables here
+        printf("Testou a colisão de verdade\n");
 
         position.x = nextPosition.x;
         position.y = nextPosition.y;
