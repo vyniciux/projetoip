@@ -85,6 +85,14 @@ int main(void)
  
     Rectangle Fire;        
     Vector2 f = {942, 50};                         //FOGO;
+ 
+    float FrameWidth2 = (float) (Pato.width/3);
+    int px = 1200;
+    int py = 401;                                         //PATO; --- COMIDA++ QUANDO O PATO RECEBE COMIDA;
+    int frame2 = 1; 
+    float Mov2 = 2;
+    int PatoFlag = 0;
+    
 
     InitAudioDevice();                                      //TESTANDO MUSICA
     Music music = LoadMusicStream("assets/sons/MusicaTeste.mp3");          //TESTANDO MUSICA
@@ -539,7 +547,10 @@ int main(void)
                 DrawTexture(quarto,0,0,WHITE );
                 DrawTexture(quarto1,0,0,WHITE );
                 DrawTexture(quarto3,0,0,WHITE );
-              
+                Vector2 vec2 = {px, py};
+                AnimPato(Pato, FrameWidth2, &frame2, &Mov2, &px, &py, &nextPosition.x-200, &nextPosition.y-250, &Mov, PatoFlag);
+                Rectangle Duck = {FrameWidth2*frame2, Pato.height/Mov2, FrameWidth2, (float) Pato.height/4};      //PATO - APENAS NA FASE DO PATO;
+                DrawTextureRec(Pato, Duck, vec2, RAYWHITE);
 
             }
 
