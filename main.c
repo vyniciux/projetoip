@@ -196,10 +196,10 @@ int main(void)
         position.x = nextPosition.x;
         position.y = nextPosition.y;
 
-        if (IsKeyDown(KEY_RIGHT)&& position.x<1850) nextPosition.x += VelPadrao;
-        if (IsKeyDown(KEY_LEFT)&& position.x>20) nextPosition.x -= VelPadrao;
+        if (IsKeyDown(KEY_RIGHT)&& position.x<1890) nextPosition.x += VelPadrao;
+        if (IsKeyDown(KEY_LEFT)&& position.x>0) nextPosition.x -= VelPadrao;
         if (IsKeyDown(KEY_UP)&& position.y>220) nextPosition.y -= VelPadrao;
-        if (IsKeyDown(KEY_DOWN)&& position.y<1050) nextPosition.y += VelPadrao;
+        if (IsKeyDown(KEY_DOWN)&& position.y<1040) nextPosition.y += VelPadrao;
 
         if (IsKeyDown(KEY_M)) {VelPadrao+=0.5;}
         if (IsKeyDown(KEY_N)){VelPadrao-=0.5;}
