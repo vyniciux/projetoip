@@ -22,17 +22,17 @@ void criarCenas(Cenas **cenas){
     (*cenas)[7].qtdPortas = 4;
     (*cenas)[8].qtdPortas = 1;
     (*cenas)[9].qtdPortas = 1;
-    (*cenas)[10].qtdPortas = 1; //10-1 11-1 12-3 14-3 15-3 16-3 17-3 18-2 19-2 20-2
+    (*cenas)[10].qtdPortas = 1; 
     (*cenas)[11].qtdPortas = 0;
-    (*cenas)[12].qtdPortas = 0;
-    (*cenas)[13].qtdPortas = 0;
-    (*cenas)[14].qtdPortas = 0;
-    (*cenas)[15].qtdPortas = 0;
-    (*cenas)[16].qtdPortas = 0;
-    (*cenas)[17].qtdPortas = 0;
-    (*cenas)[18].qtdPortas = 0;
-    (*cenas)[19].qtdPortas = 0;
-    (*cenas)[20].qtdPortas = 0;
+    (*cenas)[12].qtdPortas = 3;
+    (*cenas)[13].qtdPortas = 3;
+    (*cenas)[14].qtdPortas = 3;
+    (*cenas)[15].qtdPortas = 3;
+    (*cenas)[16].qtdPortas = 3;
+    (*cenas)[17].qtdPortas = 3;
+    (*cenas)[18].qtdPortas = 2;
+    (*cenas)[19].qtdPortas = 2;
+    (*cenas)[20].qtdPortas = 2;
 
     Porta portas1[1] = {{{1900, 535, 60, 190}, 1, 2, 1, 60.0, 690.0}};
     (*cenas)[1].portas = (Porta *) calloc((*cenas)[1].qtdPortas, sizeof(Porta));
@@ -106,11 +106,97 @@ void criarCenas(Cenas **cenas){
     for(i=0;i<(*cenas)[10].qtdPortas;i++){
         ((*cenas)[10].portas)[i] = portas10[i];
     }
+    
+    
+    //Portas do último Puzzle
+    //Ordem até então Vermelho - Branco - Azul - Verde - Preto - Laranja - Violeta - Amarelo - Rosa
+    //As portas da direita pulam o próximo quarto e vão para o seguinte
+    //As da esquerda seguem a ordem
+    //As portas de baixo voltam 1 quarto na sequência
+    
+    Porta portas12[3] = {{{830, 1070, 175, 10}, 12, 7, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 12, 19, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 12, 16, 1, 917.0, 990.0}
+                        };
+    (*cenas)[12].portas = (Porta *) calloc((*cenas)[12].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[12].qtdPortas;i++){
+        ((*cenas)[12].portas)[i] = portas12[i];
+    }
+
+    Porta portas13[3] = {{{830, 1070, 175, 10}, 13, 20, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 13, 17, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 13, 14, 1, 917.0, 990.0}
+                        };
+    (*cenas)[13].portas = (Porta *) calloc((*cenas)[13].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[13].qtdPortas;i++){
+        ((*cenas)[13].portas)[i] = portas13[i];
+    }
+
+    Porta portas14[3] = {{{830, 1070, 175, 10}, 14, 17, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 14, 18, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 14, 12, 1, 917.0, 990.0}
+                        };
+    (*cenas)[14].portas = (Porta *) calloc((*cenas)[14].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[14].qtdPortas;i++){
+        ((*cenas)[14].portas)[i] = portas14[i];
+    }
+
+    Porta portas15[3] = {{{830, 1070, 175, 10}, 15, 16, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 15, 20, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 15, 13, 1, 917.0, 990.0}
+                        };
+    (*cenas)[15].portas = (Porta *) calloc((*cenas)[15].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[15].qtdPortas;i++){
+        ((*cenas)[15].portas)[i] = portas15[i];
+    }
+
+    Porta portas16[3] = {{{830, 1070, 175, 10}, 16, 19, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 16, 15, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 16, 20, 1, 917.0, 990.0}
+                        };
+    (*cenas)[16].portas = (Porta *) calloc((*cenas)[16].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[16].qtdPortas;i++){
+        ((*cenas)[16].portas)[i] = portas16[i];
+    }
+
+    Porta portas17[3] = {{{830, 1070, 175, 10}, 17, 13, 1, 385.0, 280.0},
+                         {{315, 220, 235, 15}, 17, 14, 1, 917.0, 990.0},
+                         {{1335, 220, 240, 15}, 17, 18, 1, 917.0, 990.0}
+                        };
+    (*cenas)[17].portas = (Porta *) calloc((*cenas)[17].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[17].qtdPortas;i++){
+        ((*cenas)[17].portas)[i] = portas17[i];
+    }
+
+    Porta portas18[2] = {{{830, 1070, 175, 10}, 18, 14, 1, 385.0, 280.0},
+                        {{850, 220, 240, 15}, 18, 12, 1, 917.0, 990.0}
+                       };
+    (*cenas)[18].portas = (Porta *) calloc((*cenas)[18].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[18].qtdPortas;i++){
+        ((*cenas)[18].portas)[i] = portas18[i];
+    }
+
+    Porta portas19[2] = {{{830, 1070, 175, 10}, 19, 12, 1, 385.0, 280.0},
+                         {{850, 220, 240, 15}, 19, 16, 1, 917.0, 990.0}
+                        };
+    (*cenas)[19].portas = (Porta *) calloc((*cenas)[19].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[19].qtdPortas;i++){
+        ((*cenas)[19].portas)[i] = portas19[i];
+    }
+
+    Porta portas20[2] = {{{830, 1070, 175, 10}, 20, 15, 1, 385.0, 280.0},
+                         {{1335, 220, 240, 15}, 20, 13, 1, 917.0, 990.0}
+                        };
+    (*cenas)[20].portas = (Porta *) calloc((*cenas)[20].qtdPortas, sizeof(Porta));
+    for(i=0;i<(*cenas)[20].qtdPortas;i++){
+        ((*cenas)[20].portas)[i] = portas20[i];
+    }
 
     //Vou adicionar amanhã junto com a origem e destino dos negócios:
     //Coordenadas das salas coloridas com duas portas = 315 220 235 15     1335 220 240 15
     //Coordenadas das salas coloridas com só uma porta = 850 220 240 15
-    //-----------------------FIM DA DECLARAÇÃO DAS PORTAS------------------------------------------------
+    //Coordenadas da entrada das salas coloridas = 830 1070 175 10
+    //-----------------------FIM DA DECLARAÇÃO DAS PORTAS-----------------------------------------------
 
     //-----------------------INÍCIO DA DECLARAÇÃO DOS OBSTÁCULOS-----------------------------------------
     (*cenas)[0].qtdObstaculos = 0;
@@ -119,7 +205,7 @@ void criarCenas(Cenas **cenas){
     (*cenas)[3].qtdObstaculos = 5;
     (*cenas)[4].qtdObstaculos = 0;
     (*cenas)[5].qtdObstaculos = 3;
-    (*cenas)[6].qtdObstaculos = 4;
+    (*cenas)[6].qtdObstaculos = 6;
     (*cenas)[7].qtdObstaculos = 4;
     (*cenas)[8].qtdObstaculos = 6;
     (*cenas)[9].qtdObstaculos = 4;
@@ -174,10 +260,12 @@ void criarCenas(Cenas **cenas){
         ((*cenas)[5].obstaculos)[i] = obstaculos5[i];
     }
 
-    Rectangle obstaculos6[4] = {{440, 535, 145, 145}, 
+    Rectangle obstaculos6[6] = {{440, 535, 145, 145}, 
                                {870, 535, 138, 145},
                                {425, 800, 138, 145},
-                               {855, 810, 138, 140}
+                               {855, 810, 138, 140},
+                               {0, 0, 120, 1080},
+                               {0, 0, 1920, 360}
                               };
     (*cenas)[6].obstaculos = (Rectangle *) calloc((*cenas)[6].qtdObstaculos, sizeof(Rectangle));
     for(i=0; i<(*cenas)[6].qtdObstaculos; i++){
