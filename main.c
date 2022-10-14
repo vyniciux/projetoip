@@ -198,7 +198,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 6;    /////troca aqui pra comecçar em outra cena  // controle de produção
+    int cena = 0;    /////troca aqui pra comecçar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 15;
 
@@ -630,7 +630,7 @@ int main(void)
         //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
+    CloseAudioDevice();
     //--------------------------------------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

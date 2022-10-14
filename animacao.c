@@ -30,7 +30,7 @@ void AnimPlayer(Texture2D Player, float FrameWidth, int *frame, float *Mov, floa
     }
 }
 
-void AnimPato(Texture2D Pato, float FrameWidth2, int *frame2, float *mov2, int *px, int *py, int *x, int *y, float *Mov, int comida){
+void AnimPato(Texture2D Pato, float FrameWidth2, int *frame2, float *mov2, float *px, float *py, float *x, float *y, float *Mov, int comida){
     int maxFrames = (int) (Pato.width/(int)FrameWidth2);
     static float timer = 0.0f;
     static int cnt = 0, pnt = 0;
@@ -98,7 +98,7 @@ Rectangle AnimFogo(Texture2D Fire){
     return Fogo;
 }
 
-void AnimItem(Texture2D *item, bool *itens, int qtdItens, int x, int y){
+void AnimItem(Texture2D *item, bool *itens, int qtdItens, float x, float y){
     for(int i=0; i<qtdItens; i++){
         if(itens[i]){
             DrawTexture(item[i], x+300, y-10, RAYWHITE);
