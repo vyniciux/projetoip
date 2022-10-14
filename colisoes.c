@@ -175,7 +175,7 @@ void criarCenas(Cenas **cenas){
     }
 
     Porta portas18[2] = {{{830, 1070, 175, 10}, 18, 12, 1, 385.0, 280.0},
-                        {{850, 220, 240, 15}, 18, 21, 1, 917.0, 990.0}
+                        {{850, 220, 240, 15}, 18, 11, 1, 917.0, 990.0}
                        };
     (*cenas)[18].portas = (Porta *) calloc((*cenas)[18].qtdPortas, sizeof(Porta));
     for(i=0;i<(*cenas)[18].qtdPortas;i++){
@@ -305,7 +305,6 @@ void criarCenas(Cenas **cenas){
                                {1295, 665, 130, 415},
                                {440, 220, 365, 475},
                                {75, 220, 250, 220},
-                               //{1295, 445, 130, },
                                {915, 220, 400, 95}
                               };
     (*cenas)[9].obstaculos = (Rectangle *) calloc((*cenas)[9].qtdObstaculos, sizeof(Rectangle));
@@ -336,7 +335,7 @@ void criarCenas(Cenas **cenas){
     //-----------------------FINAL DA DECLARAÇÃO DOS OBSTÁCULOS-----------------------------------------
 }
 
-int colisao(Rectangle player, Cenas cena){
+int colisaoMapa(Rectangle player, Cenas cena){
     int i;
     if(cena.qtdObstaculos==0) {
         return 0;
