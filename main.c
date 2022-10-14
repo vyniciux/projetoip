@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "colisoes.h"
 #include "animacao.h"
+#include "itens.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -92,20 +93,12 @@ int main(void)
     Texture2D Pato =  LoadTexture("assets/pato.png");
     Texture2D fogo =  LoadTexture("assets/img00133.png");
 
-    //itens
-    Texture2D chave = LoadTexture("assets/itens/iten007.png");
-    Texture2D maca = LoadTexture("assets/itens/iten005.png");
-    Texture2D livro = LoadTexture("assets/itens/iten0010.png");
-    Texture2D baldeVazio = LoadTexture("assets/itens/iten008.png");
-    Texture2D baldeCheio = LoadTexture("assets/itens/iten009.png");
- 
-    Texture2D *texturasDeItens = (Texture2D *) calloc(5, sizeof(Texture2D));
-    texturasDeItens[0] = chave;
-    texturasDeItens[1] = maca;
-    texturasDeItens[2] = livro;
-    texturasDeItens[3] = baldeVazio;
-    texturasDeItens[4] = baldeCheio;
 
+ 
+    Texture2D *texturasDeItens;
+    int qtdItens = 5;
+    texturasDeItens = (Texture2D *) calloc(qtdItens, sizeof(Texture2D));
+    gerarItens(&texturasDeItens);
     ////Joao's code ///////////////////////////////////////////////////////////////////////////////////////////////////
 
     float FrameWidth = (float) (Player.width/6);
@@ -123,7 +116,7 @@ int main(void)
     int frame2 = 1; 
     float Mov2 = 2;
     int PatoFlag = 0;
-    
+    Rectangle patoHitbox = {px, py, FrameWidth2, Pato.height/4};
 
     InitAudioDevice();                                      //TESTANDO MUSICA
     Music music = LoadMusicStream("assets/sons/MusicaTeste.mp3");          //TESTANDO MUSICA
@@ -347,7 +340,13 @@ int main(void)
         player.x = nextPosition.x;
         player.y = nextPosition.y;
 
-        if(colisao(player, cenas[cena])==1){ //Houve colisão com algum objeto
+        if(colisaoMapa(player, cenas[cena])==1){ //Houve colisão com algum objeto
+          player.x = position.x;
+          player.y = position.y;
+          nextPosition.x = position.x;
+          nextPosition.y = position.y;
+        }
+        if((cena==9)&&(CheckCollisionRecs(patoHitbox, player)==1)){ //Houve colisão com algum objeto
           player.x = position.x;
           player.y = position.y;
           nextPosition.x = position.x;
@@ -711,14 +710,15 @@ int main(void)
 
             else if(cena==9){
 
-                DrawTexture(quarto,0,0,WHITE );
-                DrawTexture(quarto1,0,0,WHITE );
-                DrawTexture(quarto3,0,0,WHITE );
+                DrawTexture(quarto,0,0,WHITE);
+                DrawTexture(quarto1,0,0,WHITE);
+                DrawTexture(quarto3,0,0,WHITE);
                 Vector2 vec2 = {px, py};
                 AnimPato(Pato, FrameWidth2, &frame2, &Mov2, &px, &py, &nextPosition.x-200, &nextPosition.y-250, &Mov, PatoFlag);
                 Rectangle Duck = {FrameWidth2*frame2, Pato.height/Mov2, FrameWidth2, (float) Pato.height/4};      //PATO - APENAS NA FASE DO PATO;
                 DrawTextureRec(Pato, Duck, vec2, RAYWHITE);
-
+                patoHitbox.x = px;
+                patoHitbox.y = py;
             }
 
             else if(cena==10){
@@ -822,7 +822,6 @@ int main(void)
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
                 Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
-                DrawRectangleRec(player, BLUE);
             } 
             
             
