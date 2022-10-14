@@ -83,7 +83,7 @@ int main(void)
     float Mov = 2;
  
     Rectangle Fire;        
-    Vector2 f = {1005, 220};                         //FOGO;
+    Vector2 f = {942, 50};                         //FOGO;
 
     InitAudioDevice();                                      //TESTANDO MUSICA
     Music music = LoadMusicStream("assets/sons/MusicaTeste.mp3");          //TESTANDO MUSICA
@@ -202,7 +202,7 @@ int main(void)
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 11;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -523,6 +523,7 @@ int main(void)
                 DrawTexture(salav1,0,0,WHITE );
                 Fire = AnimFogo(fogo);
                 DrawTextureRec(fogo, Fire, f, RAYWHITE);
+
             }
 
             else if(cena==8){
