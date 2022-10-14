@@ -81,6 +81,9 @@ int main(void)
     float y = 10;                                                 //PLAYER;
     int frame = 1;
     float Mov = 2;
+ 
+    Rectangle Fire;        
+    Vector2 f = {1005, 220};                         //FOGO;
 
     InitAudioDevice();                                      //TESTANDO MUSICA
     Music music = LoadMusicStream("assets/sons/MusicaTeste.mp3");          //TESTANDO MUSICA
@@ -518,8 +521,8 @@ int main(void)
 
                 DrawTexture(salav,0,0,WHITE );
                 DrawTexture(salav1,0,0,WHITE );
-                AnimFogo(fogo);
-
+                Fire = AnimFogo(fogo);
+                DrawTextureRec(fogo, Fire, f, RAYWHITE);
             }
 
             else if(cena==8){
