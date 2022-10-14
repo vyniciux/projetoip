@@ -73,13 +73,11 @@ void AnimPato(Texture2D Pato, float FrameWidth2, int *frame2, float *mov2, float
     }
 } 
 
-void AnimEspelho(Texture2D Espelho, int *frame3){
-    float FrameWidth = (float) (Espelho.width/8);
-    int maxFrames = (int) (Espelho.width/(int)FrameWidth);
-    if(IsKeyPressed(KEY_E)){
-        *frame3 += 1;
-    }
-    *frame3 = *frame3 % maxFrames;
+void AnimEspelho(Texture2D Espelho, int frame3, float x, float y){       
+    float FrameWidth3 = (float) (Espelho.width/4);
+    Vector2 e = {x, y};
+    Rectangle Mirror = {FrameWidth3*frame3, Espelho.height, FrameWidth3, (float) Espelho.height};    
+    DrawTextureRec(Espelho, Mirror, e, RAYWHITE);
 }
 
 Rectangle AnimFogo(Texture2D Fire){
