@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct Player {
+typedef struct Jogador {
     float posX; // = position.x
     float posY;
     bool key[5]; //numero de fases
