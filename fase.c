@@ -13,12 +13,12 @@ void phaseOne(Jogador *players, int *cenaAtual, Cenas *cena, Sound sound){
         //    // imprimir "a porta está trancada, embaixo do vaso blah blah blah" na tela
         //}
         /*else*/ if ((*players).key[0] == true && (players->posX >= 480 && players->posX <= 615) && (players->posY >= 620 && players->posY <= 650)){
-            players->itensUti[0] = false;
+            players->itens[0] = false;
         }    
     }
     
     if (*cenaAtual == 6 && (players->posX >= 550 && players->posX <= 600) && (players->posY >= 810 && players->posY <= 900) /* && players->key[0] == false*/ && IsKeyPressed(KEY_E)){
-        players->itensUti[0] = true; // animação baseada nisso
+        players->itens[0] = true; // animação baseada nisso
         players->key[0] = true;
         PlaySound(sound);
     }    
@@ -39,7 +39,7 @@ void phaseTwo(Jogador *player, int *cenaAtual, Cenas *cena, Sound sound, int* pa
     
     if(*cenaAtual == 8){ //dentro da cozinha 
         if(player->key[1] == false && proximoMaca == 1 && IsKeyDown(KEY_E)){ // proximo ao cesto de maças
-            player->itensUti[1] = true;// animaçao de mostrar a maça
+            player->itens[1] = true;// animaçao de mostrar a maça
             player->key[1] = true;
             PlaySound(sound);
         }    
@@ -48,9 +48,9 @@ void phaseTwo(Jogador *player, int *cenaAtual, Cenas *cena, Sound sound, int* pa
     //2. alimentar o pato
     if(*cenaAtual == 9){
         if(player->key[1] == true && (player->posY <= 640 && player->posY >= 400) && (player->posX < 1600 && player->posX > 1300) && IsKeyDown(KEY_E)){
-            if(player->itensUti[1] == true)PlaySound(sound);
+            if(player->itens[1] == true)PlaySound(sound);
             (*pato) = 1;
-            player->itensUti[1] = false;
+            player->itens[1] = false;
         }
     }
 }
@@ -118,7 +118,7 @@ void phaseThree(Jogador *player, int *cenaAtual, Cenas *cena, Sound sound, int *
         }
 //.4 pegar item da gaveta
         if(player->key[2]==true && player->posX >= 60 && player->posX <=300 && player->posY<=500 && player->posY>= 400 && IsKeyPressed(KEY_E)){
-            player->itensUti[2] = true; 
+            player->itens[2] = true; 
             flagGav = 1;
             PlaySound(sound);
         }
