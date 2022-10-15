@@ -105,6 +105,13 @@ int main(void)
     Texture2D fogo =  LoadTexture("assets/img00133.png");
     Texture2D espelho = LoadTexture("assets/img00128.png");
 
+    Texture texturas[64]= {mn1, mn2, mn3, mn4, mn5, mn6, fundo, fundo1, sala, sala1, fora, fora1,
+                           fora2, fora3, fora4, casavizin, casavizin1, casavizin2, salav, cozinhav, cozinhav1, quarto, quarto1, quarto2, quarto3, quarto4, quarto5,
+                           quarto6, quarto7, salav1, estantef, salaopened, banheiro, selva, cacto, cactoFlor, gaveta, senha1, senha2, senha3, senha4, senha5, 
+                           feixeHorizontal, feixeVertical1, feixeVertical2, salalab1, salalab2, salalab3, salalab4, salalab5, salalab6, salalab7, salalab8, salalab9, 
+                           num1, num2, num3, num4, num5, num6, num7, num8, num9, final1
+                          };
+    Texture2D texturas2d[6] = {BotaoStart, BotaoSobre, BotaoInst, BotaoFechar, Titulo, Lupa};
 
  
     Texture2D *texturasDeItens;
@@ -873,10 +880,25 @@ int main(void)
         //----------------------------------------------------------------------------------
     }
 
+    UnloadSound(sound);
+    UnloadMusicStream(music);
     CloseAudioDevice();
     //--------------------------------------------------------------------------------------
+    int i;
+    for(i=0;i<23;i++){
+        free(cenas[i].obstaculos);
+        free(cenas[i].portas);
+    }
+    free(cenas);
+    free(texturasDeItens);
+    for(i=0;i<64;i++){
+        UnloadTexture(texturas[i]);
+    }
+    for(i=0;i<6;i++){
+        UnloadTexture(texturas2d[i]);
+    }
+
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
-
     return 0;
 }
