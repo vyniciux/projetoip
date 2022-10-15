@@ -2,6 +2,7 @@
 #include "colisoes.h"
 #include "animacao.h"
 #include "itens.h"
+#include "player.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -92,6 +93,7 @@ int main(void)
     Texture2D Player =  LoadTexture("assets/personagemov.png");
     Texture2D Pato =  LoadTexture("assets/pato.png");
     Texture2D fogo =  LoadTexture("assets/img00133.png");
+    Texture2D espelho = LoadTexture("assets/img00128.png");
 
 
  
@@ -111,8 +113,8 @@ int main(void)
     Vector2 f = {942, 50};                         //FOGO;
  
     float FrameWidth2 = (float) (Pato.width/3);
-    int px = 1200;
-    int py = 401;                                         //PATO; --- COMIDA++ QUANDO O PATO RECEBE COMIDA;
+    float px = 1200;
+    float py = 401;                                         //PATO; --- COMIDA++ QUANDO O PATO RECEBE COMIDA;
     int frame2 = 1; 
     float Mov2 = 2;
     int PatoFlag = 0;
@@ -148,50 +150,34 @@ int main(void)
     //Botao Jogar:
     
     float frameHeightstart = (float)BotaoStart.height/NUM_FRAMES;
-    
     Rectangle sourceRecstart = {0, 0,(float)BotaoStart.width, frameHeightstart+110};
-    
     Rectangle btnStartrec = { 200,500,(float)BotaoStart.width, frameHeightstart+110};
-    
     int btnstart = 0;
-    
     int btnActionstart = false;
     
  
     //Botao Sobre:
     
     float frameHeightsobre = (float)BotaoStart.height/NUM_FRAMES;
-    
     Rectangle sourceRecsobre = {0, 0,(float)BotaoSobre.width, frameHeightsobre+110};
-    
     Rectangle btnSobrerec = { 200, 620,(float)BotaoSobre.width, frameHeightsobre+110};
-    
     int btnsobre = 0;
-    
     int btnActionsobre = false;
     
     //Botao Instrucoes:
     
     float frameHeightinst = (float)BotaoInst.height/NUM_FRAMES;
-    
     Rectangle sourceRecinst = {0, 0,(float)BotaoInst.width, frameHeightinst+110};
-    
     Rectangle btnInstrec = { 200, 740,(float)BotaoInst.width, frameHeightinst+110};
-    
     int btninst = 0;
-    
     int btnActioninst = false;
     
     //Botao Fechar:
     
     float frameHeightfechar = (float)BotaoFechar.height/NUM_FRAMES;
-    
     Rectangle sourceRecfechar = {0, 0,(float)BotaoFechar.width, frameHeightfechar+100};
-
     Rectangle btnFecharrec = { 1650, 80,(float)BotaoFechar.width, frameHeightfechar+100};
-    
     int btnfechar = 0;
-    
     int btnActionfechar = false;
 
     //usado para animacao do texto
@@ -229,79 +215,67 @@ int main(void)
     const char messageinst5[128] = "PARA QUE SABRINA INTERAJA COM ALGO APERTE : E";
     const char messageinst6[128] = "PARA PAUSAR O JOGO APERTE : P";
                                  
-  
-
     int currentScreen=1;
 
 
     //senha 1
     float frameHeights1 = (float)senha1.height/NUM_FRAMES;
-    
     Rectangle sourceRecs1 = {0, 0,(float)senha1.width, frameHeights1+200};
-    
     Rectangle btnS1rec = { 600, 400,(float)senha1.width, frameHeights1+200};
-    
     int btns1 = 0;
-    
     int btnActions1 = false;
    
     
     // senha 2
     float frameHeights2 = (float)senha2.height/NUM_FRAMES;
-    
     Rectangle sourceRecs2 = {0, 0,(float)senha2.width, frameHeights2+200};
-    
     Rectangle btnS2rec = { 200, 600,(float)senha2.width, frameHeights2+200};
-    
     int btns2 = 0;
-    
     int btnActions2 = false;
     
     //senha 3
     
     float frameHeights3 = (float)senha3.height/NUM_FRAMES;
-    
     Rectangle sourceRecs3 = {0, 0,(float)senha3.width, frameHeights3+180};
-    
     Rectangle btnS3rec = { 1000, 600,(float)senha3.width, frameHeights3+180};
-    
     int btns3 = 0;
-    
     int btnActions3 = false;
     
     //senha 4
    
     
     float frameHeights4 = (float)senha4.height/NUM_FRAMES;
-    
     Rectangle sourceRecs4 = {0, 0,(float)senha4.width, frameHeights4+180};
-    
     Rectangle btnS4rec = { 200, 800,(float)senha4.width, frameHeights4+180};
-    
     int btns4 = 0;
-    
     int btnActions4 = false;
     
     //senha 5
     
-    
     float frameHeights5 = (float)senha5.height/NUM_FRAMES;
-    
     Rectangle sourceRecs5 = {0, 0,(float)senha5.width, frameHeights5+180};
-    
     Rectangle btnS5rec = { 1000, 800,(float)senha5.width, frameHeights5+180};
-    
     int btns5 = 0;
-    
     int btnActions5 = false;
 
     
 
     // FINAL DO CODE DA GIO //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int cena = 18;    /////troca aqui pra começar em outra cena  // controle de produção
+    // Arthur's code   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Jogador jogador;
+    for(int h = 0; h < 5; h++){
+        jogador.key[h] = false;
+        jogador.itens[h] = false;
+    }
+    int frameEsp1 = 3, frameEsp2 = 0;
+
+    /////////////////////////////////
+
+    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
+
 
 
     SetTargetFPS(60);           
@@ -354,9 +328,20 @@ int main(void)
         }
      
      
-     
-     
-        //-------------------------------
+        //ARTHUR//-----------------------
+
+        jogador.posX = position.x;
+        jogador.posY = position.y;
+
+        phaseOne(&jogador, &cena, &cenas[6], sound);
+        if(jogador.key[0] == true) cenas[5].portas[2].check = 1;
+
+        phaseTwo(&jogador, &cena, &cenas[8], sound, &PatoFlag);
+
+        phaseThree(&jogador, &cena, &cenas[9], sound, &frameEsp1, &frameEsp2);
+        if(jogador.key[2] ==  true) cenas[7].portas[4].check = 1;
+
+        //---------------------------------
 
 
         //GIOVANNA//--------------------
@@ -548,7 +533,9 @@ int main(void)
 
         printf("X=%.1f ",position.x);
         printf("Y=%.1f ",position.y);
+        printf("check=%d ", cenas[7].portas[4].check);
         printf("Cena=%d\n",cena);
+        
 
         //----------------------------------------------------------------------------------
 
@@ -688,14 +675,14 @@ int main(void)
 
                 DrawTexture(fora3,0,0,WHITE );
                 DrawTexture(fora4,0,0,WHITE );
-            
 
             }
 
             else if(cena==7){
 
-                DrawTexture(salav,0,0,WHITE );
-                DrawTexture(salav1,0,0,WHITE );
+                DrawTexture(salav,0,0,WHITE);
+                DrawTexture(salav1,0,0,WHITE);
+                jogador.itens[0] = false;
                 Fire = AnimFogo(fogo);
                 DrawTextureRec(fogo, Fire, f, RAYWHITE);
 
@@ -713,8 +700,10 @@ int main(void)
                 DrawTexture(quarto,0,0,WHITE);
                 DrawTexture(quarto1,0,0,WHITE);
                 DrawTexture(quarto3,0,0,WHITE);
+                AnimEspelho(espelho, frameEsp1, 1000, 700);
+                AnimEspelho(espelho, frameEsp2, 130, 700);
                 Vector2 vec2 = {px, py};
-                AnimPato(Pato, FrameWidth2, &frame2, &Mov2, &px, &py, &nextPosition.x-200, &nextPosition.y-250, &Mov, PatoFlag);
+                AnimPato(Pato, FrameWidth2, &frame2, &Mov2, &px, &py, &nextPosition.x, &nextPosition.y, &Mov, PatoFlag);
                 Rectangle Duck = {FrameWidth2*frame2, Pato.height/Mov2, FrameWidth2, (float) Pato.height/4};      //PATO - APENAS NA FASE DO PATO;
                 DrawTextureRec(Pato, Duck, vec2, RAYWHITE);
                 patoHitbox.x = px;
@@ -740,7 +729,8 @@ int main(void)
             else if(cena==12){
 
                 DrawTexture(salalab1,0,0,WHITE);
-               DrawTexture(num1,0,10,WHITE);
+                DrawTexture(num1,0,10,WHITE);
+                jogador.itens[2] = false;
 
             }
 
@@ -824,7 +814,8 @@ int main(void)
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
             } 
             
-            
+
+            AnimItem(texturasDeItens, jogador.itens, 5, nextPosition.x - 200, nextPosition.y - 250);
             
             EndDrawing();
         //----------------------------------------------------------------------------------
