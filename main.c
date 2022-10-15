@@ -283,7 +283,7 @@ int main(void)
 
     /////////////////////////////////
 
-    int cena = 8;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 10;
 
