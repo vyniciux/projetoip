@@ -14,7 +14,7 @@ int main(void)
     const int screenWidth = 1920;
     const int screenHeight = 1080;
 
-    InitWindow(screenWidth, screenHeight, "Demo");
+    InitWindow(screenWidth, screenHeight, "O vizin");
 
     Vector2 position = { (float)screenWidth/2, (float)screenHeight/2 };
     
@@ -89,6 +89,7 @@ int main(void)
     Texture num8 = LoadTexture("assets/puzzle estante/num03.png");
     Texture num9 = LoadTexture("assets/puzzle estante/num15.png");
 
+    Texture final1 = LoadTexture("assets/final001.png");
 
     Texture2D Player =  LoadTexture("assets/personagemov.png");
     Texture2D Pato =  LoadTexture("assets/pato.png");
@@ -132,7 +133,7 @@ int main(void)
    
     Vector2 nextPosition = { (float)screenWidth/2 + 100, (float)screenHeight/2};
     Cenas *cenas;
-    cenas = (Cenas *) malloc (22 * sizeof(Cenas));
+    cenas = (Cenas *) malloc (23 * sizeof(Cenas));
     criarCenas(&cenas); 
     Rectangle player = {position.x, position.y, 100, 80};
     
@@ -189,6 +190,7 @@ int main(void)
     int framesCounter5 = 0;
     int framesCounter6 = 0;
     
+    int framesCounter7 = 0;
     //variavel para iniciar o jogo
     
     int iniciajogo = false;
@@ -461,73 +463,75 @@ int main(void)
           }
        
         }
-        
+      
         else if(cena==21){
 
-        if (CheckCollisionPointRec(PosMouse, btnS1rec))
-            {
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns1 = 2;
-                else btns1 = 1;
-
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions1 = true;
-            }
-        else btnActions1 = 0;
-             
-        sourceRecs1.y = btns1*(frameHeights1-55);
-        
-        //checando colisao com o botao 2
-        
-        if (CheckCollisionPointRec(PosMouse, btnS2rec))
-            {
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns2 = 2;
-                else btns2 = 1;
-
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions2 = true;
-            }
-        else btnActions2 = 0;
+            PosMouse= GetMousePosition();
             
-        sourceRecs2.y = btns2*(frameHeights2-55);
-        
-        //checando colisao com o botao 3
-        if (CheckCollisionPointRec(PosMouse, btnS3rec))
-            {
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns3 = 2;
-                else btns3 = 1;
+            if (CheckCollisionPointRec(PosMouse, btnS1rec))
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns1 = 2;
+                    else btns1 = 1;
 
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions3= true;
-            }
-        else btnActions3 = 0;
+                    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {btnActions1 = true;cena=12;}
+                }
+            else btnActions1 = 0;
+                
+            sourceRecs1.y = btns1*(frameHeights1-55);
             
-        sourceRecs3.y = btns3*(frameHeights3-55);
-        
-        //checando colisao com o botao 4
-        
-        if (CheckCollisionPointRec(PosMouse, btnS4rec))
-            {
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns4 = 2;
-                else btns4 = 1;
-
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions4 = true;
-            }
-        else btnActions4 = 0;
+            //checando colisao com o botao 2
             
-        sourceRecs4.y = btns4*(frameHeights4-55);
-        
-        //checando colisao com o botao 5
-        
-        if (CheckCollisionPointRec(PosMouse, btnS5rec))
-            {
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns5 = 2;
-                else btns5 = 1;
+            if (CheckCollisionPointRec(PosMouse, btnS2rec))
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns2 = 2;
+                    else btns2 = 1;
 
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) btnActions5 = true;
+                    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {btnActions2 = true;cena=12;}
+                }
+            else btnActions2 = 0;
+                
+            sourceRecs2.y = btns2*(frameHeights2-55);
+            
+            //checando colisao com o botao 3
+            if (CheckCollisionPointRec(PosMouse, btnS3rec))
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns3 = 2;
+                    else btns3 = 1;
+
+                    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)){btnActions3= true;cena=12;}
+                }
+            else btnActions3 = 0;
+                
+            sourceRecs3.y = btns3*(frameHeights3-55);
+            
+            //checando colisao com o botao 4
+            
+            if (CheckCollisionPointRec(PosMouse, btnS4rec))
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns4 = 2;
+                    else btns4 = 1;
+
+                    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)){ btnActions4 = true;cena=22;}
+                }
+            else btnActions4 = 0;
+                
+            sourceRecs4.y = btns4*(frameHeights4-55);
+            
+            //checando colisao com o botao 5
+            
+            if (CheckCollisionPointRec(PosMouse, btnS5rec))
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) btns5 = 2;
+                    else btns5 = 1;
+
+                    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {btnActions5 = true;cena=12;}
+                }
+            else btnActions5 = 0;
+            
+            sourceRecs5.y = btns5*(frameHeights5-55);
+            
             }
-        else btnActions5 = 0;
-         
-        sourceRecs5.y = btns5*(frameHeights5-55);
-        
-        }
-        
+
         //------------------------------
 
 
@@ -804,6 +808,40 @@ int main(void)
             DrawTextureRec(senha4, sourceRecs4, (Vector2){ btnS4rec.x, btnS4rec.y}, WHITE);
             DrawTextureRec(senha5, sourceRecs5, (Vector2){ btnS5rec.x, btnS5rec.y}, WHITE);
             
+            }
+
+                        else if(cena==22){
+                
+                framesCounter7++;
+
+                DrawTexture(final1,0,0,RAYWHITE);
+
+                if(framesCounter7<300)DrawText(TextSubtext("???????????????????????????????????", 0, framesCounter7/3), 200, 850, 60, BLACK);
+                if(framesCounter7>300&&framesCounter7<600)DrawText("Sabrina: ?????????  Então era você o saci Perêrê", 200, 850, 60,WHITE);
+                if(framesCounter7>600&&framesCounter7<1100)DrawText("Saci: Como você chegou aqui?", 200, 850, 60, RED);
+                if(framesCounter7>600&&framesCounter7<1100)DrawText("Já vi que o labirinto não é de nada.", 200,920, 60, RED);
+                if(framesCounter7>1100&&framesCounter7<1500)DrawText("Sabrina: Nada que uma garota ", 200, 850, 60, WHITE);
+                if(framesCounter7>1100&&framesCounter7<1500)DrawText("de talentos não dê conta ;).", 200,920, 60, WHITE);
+                if(framesCounter7>1500&&framesCounter7<1900)DrawText("Saci: Só não me prenda numa garrafa,", 200, 850, 60, RED);
+                if(framesCounter7>1500&&framesCounter7<1900)DrawText("tenho más memórias", 200,920, 60, RED);
+                if(framesCounter7>1900&&framesCounter7<2200)DrawText("Sabrina: Não é o tipo  de magia que eu faço.", 200, 850, 60, WHITE);
+                if(framesCounter7>2200&&framesCounter7<2600)DrawText("Saci: Mas...... por favor não conte, ", 200, 850, 60, RED);
+                if(framesCounter7>2200&&framesCounter7<2600)DrawText("meu segredo a ninguém!", 200,920, 60, RED);
+                if(framesCounter7>2600&&framesCounter7<3000)DrawText("Saci: o preconceio é demais nessa ", 200, 850, 60, RED);
+                if(framesCounter7>2600&&framesCounter7<3000)DrawText("jsociedade opressora", 200,920, 60, RED);
+                if(framesCounter7>3000&&framesCounter7<3300)DrawText("Sabrina: Qual motivo eu teria pra guardar segredo?", 200, 850, 60, WHITE);
+                if(framesCounter7>3300&&framesCounter7<3700)DrawText("Saci: Você também tem seus segredos,", 200, 850, 60, RED);
+                if(framesCounter7>3300&&framesCounter7<3700)DrawText(" gostaria de explanar?", 200,920, 60, RED);
+                if(framesCounter7>3700&&framesCounter7<4000)DrawText("Sabrina: Bom ponto, não mexo em quem tá quieto", 200, 850, 60, WHITE);
+                if(framesCounter7>4000&&framesCounter7<4300)DrawText("Sabrina: Gostei do senhor, seu segredo está guardado", 190, 850, 60, WHITE);
+                if(framesCounter7>4300&&framesCounter7<4700)DrawText("Sabrina: Só me garanta que vai cuida da ", 200, 850, 60, WHITE);
+                if(framesCounter7>4300&&framesCounter7<4700)DrawText("natureza, e lutar contra o desmatamento", 200,920, 60, WHITE);
+                if(framesCounter7>4700&&framesCounter7<5100)DrawText("Sabrina e Saci observam juntos a paisagem.", 200,850, 60, BLACK);
+                if(framesCounter7> 5100){cena=11; nextPosition.y=800;}
+
+
+
+
             }
 
             else if(cena>0){
