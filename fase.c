@@ -29,10 +29,10 @@ void phaseTwo(Jogador *player, int *cenaAtual, Cenas *cena, Sound sound, int* pa
     //.1 pegar maca na cozinha
     int proximoMaca = 0;
     if(player->posX >= 380 && player->posX <= 400){
-        if(player->posY >= 620) proximoMaca = 1;   //nao precisava
+        if(player->posY >= 550) proximoMaca = 1;   //nao precisava
         else proximoMaca = 0;
     }
-    else if(player->posY >= 610 && player->posY <= 630){
+    else if(player->posY >= 550 && player->posY <= 630){
         if(player->posX<=400) proximoMaca = 1;    //fazer isso, mas ok
         else proximoMaca = 0;
     }
@@ -64,7 +64,7 @@ void phaseThree(Jogador *player, int *cenaAtual, Cenas *cena, Sound sound, int *
             aux1 = true;
         }*/
  //.2 espelho 01
-        if(player->posX>= 880 && player->posX <= 1100 && player->posY >= 760 && player->posY <= 900 && IsKeyPressed(KEY_E)){
+        if((player->posX>= 850 && player->posX <= 1250 && player->posY >= 600 && player->posY <= 1100) && IsKeyPressed(KEY_E)){
             static int giroEspelho1 = 3; //frame inicial
             giroEspelho1++;
             if(giroEspelho1%4==0){ //correta
@@ -87,7 +87,7 @@ void phaseThree(Jogador *player, int *cenaAtual, Cenas *cena, Sound sound, int *
             }
         }    
  //.3 espelho 02
-        if(player->posX >= 100 && player->posX <=300 && player->posY<=1200 && player->posY>= 900 && IsKeyPressed(KEY_E)){
+        if((player->posX >= 30 && player->posX <=270 && player->posY<=1100 && player->posY>= 600) && IsKeyPressed(KEY_E)){
             static int giroEspelho2 = 0;
             giroEspelho2++;
             if(giroEspelho2%4==0){

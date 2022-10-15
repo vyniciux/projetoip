@@ -283,9 +283,9 @@ int main(void)
 
     /////////////////////////////////
 
-    int cena = 11;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 8;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
-    float VelPadrao = 5;
+    float VelPadrao = 10;
 
 
 
@@ -546,7 +546,6 @@ int main(void)
 
         printf("X=%.1f ",position.x);
         printf("Y=%.1f ",position.y);
-        printf("check=%d ", cenas[7].portas[4].check);
         printf("Cena=%d\n",cena);
         
 
@@ -676,9 +675,9 @@ int main(void)
 
             else if(cena==5){
 
-                DrawTexture(casavizin,0,0,WHITE );
-                DrawTexture(casavizin1,0,0,WHITE );
-              
+                DrawTexture(casavizin,0,0,WHITE);
+                DrawTexture(casavizin1,0,0,WHITE);
+                if(cenas[5].portas[2].check == 0) DrawText("O vizinho geralmente deixa a chave embaixo do vaso", 0, 0, 45, WHITE);
             }
              
             else if(cena==6){
@@ -720,6 +719,7 @@ int main(void)
                 patoHitbox.x = px;
                 patoHitbox.y = py;
                 DrawTexture(feixeVertical1,0,0,WHITE);
+                if(jogador.key[1]==false) DrawText("O pato parece estar com fome", 0, 0, 45, WHITE);
                 if(frameEsp1==0) DrawTexture(feixeHorizontal,0,80,WHITE);
                 if(frameEsp1==0 && frameEsp2==2) {
                     DrawTexture(gaveta,0,0,WHITE);
@@ -842,7 +842,7 @@ int main(void)
                 if(framesCounter7>2200&&framesCounter7<2600)DrawText("Saci: Mas...... por favor não conte, ", 200, 850, 60, RED);
                 if(framesCounter7>2200&&framesCounter7<2600)DrawText("meu segredo a ninguém!", 200,920, 60, RED);
                 if(framesCounter7>2600&&framesCounter7<3000)DrawText("Saci: o preconceio é demais nessa ", 200, 850, 60, RED);
-                if(framesCounter7>2600&&framesCounter7<3000)DrawText("jsociedade opressora", 200,920, 60, RED);
+                if(framesCounter7>2600&&framesCounter7<3000)DrawText("sociedade opressora", 200,920, 60, RED);
                 if(framesCounter7>3000&&framesCounter7<3300)DrawText("Sabrina: Qual motivo eu teria pra guardar segredo?", 200, 850, 60, WHITE);
                 if(framesCounter7>3300&&framesCounter7<3700)DrawText("Saci: Você também tem seus segredos,", 200, 850, 60, RED);
                 if(framesCounter7>3300&&framesCounter7<3700)DrawText(" gostaria de explanar?", 200,920, 60, RED);
