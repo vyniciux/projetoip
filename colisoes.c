@@ -216,7 +216,7 @@ void criarCenas(Cenas **cenas){
     (*cenas)[6].qtdObstaculos = 6;
     (*cenas)[7].qtdObstaculos = 4;
     (*cenas)[8].qtdObstaculos = 6;
-    (*cenas)[9].qtdObstaculos = 5;
+    (*cenas)[9].qtdObstaculos = 7;
     (*cenas)[10].qtdObstaculos = 3;
     (*cenas)[11].qtdObstaculos = 5;
     (*cenas)[12].qtdObstaculos = 0;
@@ -302,11 +302,13 @@ void criarCenas(Cenas **cenas){
         ((*cenas)[8].obstaculos)[i] = obstaculos8[i];
     }
 
-    Rectangle obstaculos9[5] = {{1295, 220, 130, 225}, 
+    Rectangle obstaculos9[7] = {{1295, 220, 130, 225}, 
                                {1295, 665, 130, 415},
                                {440, 220, 365, 475},
                                {75, 220, 250, 220},
-                               {915, 220, 400, 95}
+                               {915, 220, 400, 95},
+                               {1000, 700, 125, 270},
+                               {130, 700, 125, 270},
                               };
     (*cenas)[9].obstaculos = (Rectangle *) calloc((*cenas)[9].qtdObstaculos, sizeof(Rectangle));
     for(i=0; i<(*cenas)[9].qtdObstaculos; i++){

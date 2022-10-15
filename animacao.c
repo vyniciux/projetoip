@@ -53,7 +53,7 @@ void AnimPato(Texture2D Pato, float FrameWidth2, int *frame2, float *mov2, float
         if(*y>=500){
             pnt++;
         }
-        if(pnt>=0){
+        if(pnt>0){
             if(*px < 1700 || *py > 200){
                 if(timer >= 0.2f){
                 timer = 0.0f;

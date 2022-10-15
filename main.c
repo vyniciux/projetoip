@@ -69,6 +69,10 @@ int main(void)
     Texture senha4 = LoadTexture("assets/Menu/lonb00.png");
     Texture senha5 = LoadTexture("assets/Menu/lonb04.png");
 
+    Texture feixeHorizontal = LoadTexture("assets/img00126.png");
+    Texture feixeVertical1 = LoadTexture("assets/img00125.png");
+    Texture feixeVertical2 = LoadTexture("assets/img00127.png");
+
     Texture salalab1 = LoadTexture("assets/puzzle estante/qt001.png");
     Texture salalab2 = LoadTexture("assets/puzzle estante/qt002.png");
     Texture salalab3 = LoadTexture("assets/puzzle estante/qt003.png");
@@ -274,7 +278,7 @@ int main(void)
 
     /////////////////////////////////
 
-    int cena = 0;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 7;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -645,12 +649,9 @@ int main(void)
         
             else  if(cena ==2){
 
-
                 DrawTexture(sala,0,0,WHITE);
                 DrawTexture(sala1,0,0,WHITE);
              
-              
-            
             }
 
             else if(cena==3){
@@ -712,6 +713,9 @@ int main(void)
                 DrawTextureRec(Pato, Duck, vec2, RAYWHITE);
                 patoHitbox.x = px;
                 patoHitbox.y = py;
+                DrawTexture(feixeVertical1,0,0,WHITE);
+                if(frameEsp1==0) DrawTexture(feixeHorizontal,0,80,WHITE);
+                if(frameEsp1==0 && frameEsp2==2) DrawTexture(feixeVertical2,0,20,WHITE);
             }
 
             else if(cena==10){
@@ -799,18 +803,18 @@ int main(void)
             
             if(cena==21){
 
-            ClearBackground(BLUE);
-            DrawTexture(mn6, 0, 0, WHITE);
-            DrawText("Qual a senha?",450,200,150,BLACK);
-            DrawTextureRec(senha1, sourceRecs1, (Vector2){ btnS1rec.x, btnS1rec.y}, WHITE);
-            DrawTextureRec(senha2, sourceRecs2, (Vector2){ btnS2rec.x, btnS2rec.y}, WHITE);
-            DrawTextureRec(senha3, sourceRecs3, (Vector2){ btnS3rec.x, btnS3rec.y}, WHITE);
-            DrawTextureRec(senha4, sourceRecs4, (Vector2){ btnS4rec.x, btnS4rec.y}, WHITE);
-            DrawTextureRec(senha5, sourceRecs5, (Vector2){ btnS5rec.x, btnS5rec.y}, WHITE);
-            
+                ClearBackground(BLUE);
+                DrawTexture(mn6, 0, 0, WHITE);
+                DrawText("Qual a senha?",450,200,150,BLACK);
+                DrawTextureRec(senha1, sourceRecs1, (Vector2){ btnS1rec.x, btnS1rec.y}, WHITE);
+                DrawTextureRec(senha2, sourceRecs2, (Vector2){ btnS2rec.x, btnS2rec.y}, WHITE);
+                DrawTextureRec(senha3, sourceRecs3, (Vector2){ btnS3rec.x, btnS3rec.y}, WHITE);
+                DrawTextureRec(senha4, sourceRecs4, (Vector2){ btnS4rec.x, btnS4rec.y}, WHITE);
+                DrawTextureRec(senha5, sourceRecs5, (Vector2){ btnS5rec.x, btnS5rec.y}, WHITE);
+
             }
 
-                        else if(cena==22){
+            else if(cena==22){
                 
                 framesCounter7++;
 
@@ -850,6 +854,7 @@ int main(void)
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
                 Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
+                DrawRectangleRec(player, BLUE);
             } 
             
 
