@@ -1,4 +1,4 @@
-#infdef PHASES
+#ifndef PHASES
 #define PHASES
 
 #include "raylib.h"
