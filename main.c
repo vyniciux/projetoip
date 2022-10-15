@@ -61,6 +61,10 @@ int main(void)
     Texture salaopened = LoadTexture("assets/img00134.png");
     Texture banheiro = LoadTexture("assets/img00151.png");
     Texture selva = LoadTexture("assets/img0016.png");
+    Texture cacto = LoadTexture("assets/img00129.png");
+    Texture cactoFlor = LoadTexture("assets/img001210.png");
+    Texture gaveta = LoadTexture("assets/img00122.png");
+
 
 
     Texture senha1 = LoadTexture("assets/Menu/lonb01.png");
@@ -96,6 +100,7 @@ int main(void)
     Texture final1 = LoadTexture("assets/final001.png");
 
     Texture2D Player =  LoadTexture("assets/personagemov.png");
+    Texture2D vizin = LoadTexture("assets/vizin.png");
     Texture2D Pato =  LoadTexture("assets/pato.png");
     Texture2D fogo =  LoadTexture("assets/img00133.png");
     Texture2D espelho = LoadTexture("assets/img00128.png");
@@ -278,7 +283,7 @@ int main(void)
 
     /////////////////////////////////
 
-    int cena = 7;    /////troca aqui pra começar em outra cena  // controle de produção
+    int cena = 11;    /////troca aqui pra começar em outra cena  // controle de produção
     int cenapp = 1;
     float VelPadrao = 5;
 
@@ -704,7 +709,8 @@ int main(void)
 
                 DrawTexture(quarto,0,0,WHITE);
                 DrawTexture(quarto1,0,0,WHITE);
-                DrawTexture(quarto3,0,0,WHITE);
+                DrawTexture(quarto4,0,0,WHITE);
+                DrawTexture(cacto, 0, 0,WHITE);
                 AnimEspelho(espelho, frameEsp1, 1000, 700);
                 AnimEspelho(espelho, frameEsp2, 130, 700);
                 Vector2 vec2 = {px, py};
@@ -715,7 +721,11 @@ int main(void)
                 patoHitbox.y = py;
                 DrawTexture(feixeVertical1,0,0,WHITE);
                 if(frameEsp1==0) DrawTexture(feixeHorizontal,0,80,WHITE);
-                if(frameEsp1==0 && frameEsp2==2) DrawTexture(feixeVertical2,0,20,WHITE);
+                if(frameEsp1==0 && frameEsp2==2) {
+                    DrawTexture(gaveta,0,0,WHITE);
+                    DrawTexture(feixeVertical2,0,20,WHITE);
+                    DrawTexture(cactoFlor, 0, 0,WHITE);
+                }
             }
 
             else if(cena==10){
@@ -726,9 +736,9 @@ int main(void)
             }
 
             else if(cena==11){
-
+        
                 DrawTexture(selva,0,0,WHITE);
-              
+                DrawTexture(vizin, 660, 240, WHITE);
 
             }
 
@@ -854,7 +864,6 @@ int main(void)
                 AnimPlayer(Player, FrameWidth, &frame, &Mov, &x, &y);
                 Rectangle Character = {FrameWidth*frame, Player.height/Mov, FrameWidth, (float) Player.height/4};     //PLAYER - INICIO DO LOOP;
                 DrawTextureRec(Player, Character, vec, RAYWHITE);
-                DrawRectangleRec(player, BLUE);
             } 
             
 
